@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+body::before{
+    content:"";
+    display:block;
+    top:0;
+    left:0;
+    z-index:-1;
+    position:fixed;
+    background-image:url(images/IMG_0961.JPG);
+    background-repeat:no-repeat;
+    background-position:50% 100%;
+    background-size:cover;
+    width:100%;
+    height:100vh;
+}
+.pagetitle{
+	margin-top:60px !important;
+}
+.center{
+	display:block !important;
+	text-align:center !important;
+}
+a{
+	color:#212529 !important;
+}
+
+
+.loginform{
+	margin-top:15vh!important;
+	background-color:rgba(248, 249, 250,0.5);
+	border-radius:10px;
+}
+.topbutton{
+	margin-top:30vh!important;
+	background-color:rgba(248, 249, 250,0.5);
+	border-radius:10px;
+}
+.footer{
+	padding-bottom:8px !important;
+}
+.imginput{
+	margin-top:80px;;
+}
+
+hr{
+	height:1px !important;
+}
+
+
+/* --画像-- */
+.imgcontainer{
+	width:200px !important;
+	height:200px !important;
+	padding:0 !important;
+	margin-top:80px !important;
+}
+img{
+	width:100% !important;
+	height:100% !important;
+	object-fit: cover;
+}
+/* -------- */
+
+
+.editbutton{
+	margin-bottom:100px;
+}
+
+@media(min-width:960px){
+	.profile{
+		margin-top:100px !important;
+	}
+	
+}
