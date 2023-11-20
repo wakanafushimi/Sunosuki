@@ -63,8 +63,8 @@ img{
 /* -------- */
 
 
-.editbutton{
-	margin-bottom:100px;
+.trick-card{
+	margin-bottom:200px !important;
 }
 
 @media(min-width:960px){

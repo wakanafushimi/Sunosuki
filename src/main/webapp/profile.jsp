@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,17 +66,78 @@
                 <p class="text-muted mb-0">${newprofileModel.selfintro}</p>
               </div>
             </div>
+            <hr>
             
-            
+            <div> 
+        		<a href="profile_edit.jsp" class="center"><span class="btn btn-success">編集</span></a>
+       		</div>
           </div>
         </div>
-        </div>
-        </div>
-        </div>
+            
+        <div class="card trick-card">
+        <div class="card-body">
+            <div class="row">
+            
+               <div class="col-sm-3">
+               	<p class="mb-0">マスター済みトリック</p>
+               </div>
+              	<div class="col-sm-9">
+              		<div class="text-muted row mb-0">
+                		<c:forEach var="i" items="${trickModel.getTrick_aList()}">
+                			<div class="col-sm-3 mb-0">
+                				 <c:out value="${i}"/>
+                				 <a href="TrickServlet?deleteValuea=${i}" class="btn btn-secondary">ー</a>
+                			</div>
+                		</c:forEach>
+                				
+                		<div class="col-sm-4 mb-0">
+                			<form action="TrickServlet" method="get">
+                				<div class="d-flex">
+                					<input type="text" name="trick_a" placeholder="" class="form-control">
+                					<button type="submit"> <i class="fa-solid fa-plus"></i></button>
+                				</div>
+                			</form>
+                		</div>
+                				
+					</div>
+              	</div>
+            </div><!-- row -->
+            <hr>
+            		
+            <div class="row">
+              	<div class="col-sm-3">
+                	<p class="mb-0">練習中トリック</p>
+              	</div>
+              	<div class="col-sm-9">
+                	<div class="text-muted mb-0 row">
+	                	<c:forEach var="i" items="${trickModel.getTrick_bList()}">
+		            		<div class="col-sm-3 mb-0">
+		            		 	<c:out value="${i}"/>
+		            		 	<a href="TrickServlet?deleteValueb=${i}" class="btn btn-secondary">>ー</a>
+	                	 	</div>
+	                	</c:forEach>
+	                			
+                	<div class="col-sm-4 mb-0">
+                		<form action="TrickServlet" method="get">
+                			<div class="d-flex">
+                				<input type="text" name="trick_b" placeholder="" class="form-control">
+                				<button type="submit"><i class="fa-solid fa-plus"></i></button>
+                			</div>
+                		</form>
+                	</div>
+                </div>
+            </div>
+        </div><!-- row -->
+            		
+            
+            
+    </div>
+ </div>
+</div>
+</div>
+</div>
         
-        <div class="editbutton"> 
-        <a href="profile_edit.jsp" class="center"><span class="btn btn-success">編集</span></a>
-        </div>
+        
         
 	
 	<jsp:include page="menu.jsp"/>

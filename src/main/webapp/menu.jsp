@@ -4,7 +4,7 @@
 <div class="fixed-bottom bg-light footer">
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link" href="ProfileServlet"><i class="fa-solid fa-user"></i></a>
+    <a class="nav-link" href="TrickServlet"><i class="fa-solid fa-user"></i></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#"><i class="fa-regular fa-calendar-days"></i></a>

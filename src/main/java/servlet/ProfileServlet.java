@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.ProfileDAO;
-import dao.TrickModel;
 import model.LoginModel;
 import model.ProfileModel;
 
@@ -120,20 +119,6 @@ public class ProfileServlet extends HttpServlet {
 		newprofileModel=profileDAO.getDetail(loginModel);
 		session.setAttribute("newprofileModel", newprofileModel);	
 		
-		
-		//trick
-		String trick_a_1=request.getParameter("trick_a_1");
-		String trick_a_2=request.getParameter("trick_a_2");
-		String trick_a_3=request.getParameter("trick_a_3");
-		String trick_b_1=request.getParameter("trick_b_1");
-		String trick_b_2=request.getParameter("trick_b_2");
-		String trick_b_3=request.getParameter("trick_b_3");
-		
-		TrickModel trickModel=new TrickModel(trick_a_1,trick_a_2,trick_a_3,trick_b_1,trick_b_2,trick_b_3);
-		
-		
-		
-	
 		RequestDispatcher dispatcher=request.getRequestDispatcher("profile.jsp");
 		dispatcher.forward(request, response);
 	}

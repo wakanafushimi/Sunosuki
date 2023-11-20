@@ -124,35 +124,6 @@
                 			</p>
               			</div>
             		</div><!-- row -->
-            		<hr>
-            		
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">マスター済みトリック</p>
-              			</div>
-              			<div class="col-sm-9">
-                			<div class="text-muted mb-0 row">
-                				<div class="col-sm-4 pb-1"><input type="text" name="trick_a_1" placeholder="${newprofileModel.username}" class="form-control"></div>
-								<div class="col-sm-4 pb-1"><input type="text" name="trick_a_2" placeholder="${newprofileModel.username}" class="form-control"></div>
-								<div class="col-sm-4 pb-1"><input type="text" name="trick_a_3" placeholder="${newprofileModel.username}" class="form-control"></div>
-							</div>
-              			</div>
-            		</div><!-- row -->
-            		<hr>
-            		
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">練習中トリック</p>
-              			</div>
-              			<div class="col-sm-9">
-                			<div class="text-muted mb-0 row">
-                				<div class="col-sm-4 pb-1"><input type="text" name="trick_b_1" placeholder="${newprofileModel.username}" class="form-control"></div>
-                				<div class="col-sm-4 pb-1"><input type="text" name="trick_b_2" placeholder="${newprofileModel.username}" class="form-control"></div>
-                				<div class="col-sm-4 pb-1"><input type="text" name="trick_b_3" placeholder="${newprofileModel.username}" class="form-control"></div>
-                			</div>
-              			</div>
-            		</div><!-- row -->
-            
           		
        			</div><!-- card-body -->
         	</div><!-- card mb-4 -->
