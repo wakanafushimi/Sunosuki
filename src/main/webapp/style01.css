@@ -53,12 +53,19 @@ hr{
 	width:200px !important;
 	height:200px !important;
 	padding:0 !important;
-	margin-top:80px !important;
+	margin-top:130px !important;
 }
 img{
 	width:100% !important;
 	height:100% !important;
 	object-fit: cover;
+}
+
+.imgcontainerPeers{
+	width:70px !important;
+	height:70px !important;
+	padding:0 !important;
+	
 }
 /* -------- */
 
@@ -66,9 +73,45 @@ img{
 .trick-card{
 	margin-bottom:200px !important;
 }
+.minus{
+	padding:1px 5px !important;
+}
+.plus{
+	padding:0px 6px !important;
+}
+.minus,.plus{
+	border:initial !important;
+	border-radius:50%;
+	background-color:#28a745;
+}
+.fa-plus,.fa-minus{
+	color:#fff;
+}
+.peerstop{
+	margin-top:80px !important;
+}
+.peer{
+	border-radius:20px !important;
+}
+.peername{
+	padding-left:20px !important;
+}
+.calender{
+	font-size:20px !important;
+	color:#28a745;
+	
+}
+
+.peerhr{
+	margin:0 !important;
+}
+.mini{
+	font-size:11px !important;
+}
+
 
 @media(min-width:960px){
-	.profile{
+	.showtop{
 		margin-top:100px !important;
 	}
 	

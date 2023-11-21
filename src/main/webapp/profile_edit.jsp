@@ -19,16 +19,16 @@
 
 <form action="ProfileServlet" method="post" enctype="multipart/form-data">
 <div class="container">
-	<div class="row align-items-center">
+	<div class="row">
     	<div class="col-lg-4 mx-auto mb-3">		
-    	<div class="card imginput">
-    	<div class="card-body">
-			プロフィール画像<input type="file" name="img">
-			</div>
+    		<div class="card imginput">
+    			<div class="card-body">
+					プロフィール画像<input type="file" name="img">
+				</div>
 			</div>
       	</div>
 
-      	<div class="col-lg-8 profile">
+      	<div class="col-lg-8 showtop">
         	<div class="card mb-4">
           		<div class="card-body">
           
