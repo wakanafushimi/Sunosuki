@@ -79,7 +79,7 @@
             <div class="row">
             
                <div class="col-sm-3">
-               	<p class="mb-0">マスター済みトリック</p>
+               	<p class="mb-0">教えられるトリック</p>
                </div>
               	<div class="col-sm-9">
               		<div class="text-muted mb-1">

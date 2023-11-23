@@ -110,9 +110,9 @@ img{
 }
 
 
-@media(min-width:960px){
+/*@media(min-width:960px){*/
 	.showtop{
 		margin-top:100px !important;
 	}
 	
-}
+/*}*/

@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import model.PeersModel;
 
 public class PeersDAO {
 	private final String JDBC_URL="jdbc:mysql://localhost:3306/sunosuki";
@@ -54,14 +57,16 @@ public class PeersDAO {
 		
 	}
 	
-	public List<String[]> getPeersTrick_a() {
+	public PeersModel getPeersTrick_a() {
 		try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	    } catch (ClassNotFoundException e) {
 	        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 	    }
 		
-		List<String[]> peersTrick_a=new ArrayList<>();
+		PeersModel peersModel=new PeersModel();
+		List<String[]> list=peersModel.getList();
+		Set<String> set=peersModel.getSet();		
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 	        conn.setAutoCommit(true);
@@ -77,11 +82,11 @@ public class PeersDAO {
 		        	trick_aArray[i-1]=rs.getString(i);
 		        }
 		        
-		        peersTrick_a.add(trick_aArray);
-		     
+		        list.add(trick_aArray);
+		        set.add(trick_aArray[0]);
 	         }
 	        
-		}catch(SQLException e) {
+	    }catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("エラー2"+e.getMessage());
 			System.out.println("SQL State: " + e.getSQLState());
@@ -89,7 +94,7 @@ public class PeersDAO {
 			
 		}
 		
-		return peersTrick_a;
+		return peersModel;
 		
 		
 	}

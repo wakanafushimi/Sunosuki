@@ -21,10 +21,24 @@
 <jsp:include page="header.jsp"/>
 		
 <div class="container">
+	<form action="ForCoachServlet" method="get">
+		<div class="row justify-content-center showtop">
+			<div class="col-2">
+				<p>Look for a coach?</p>
+			</div>
+			<div class="col-3">
+				<input type="text" name="forcoach" class="form-control inline-block">
+			</div>
+			<div class="col-1">
+				<button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+			</div>
+		</div>
+	</form>
 	<div class="row justify-content-center">
 		<div class="col-md-6">
-			<ul class="showtop peerstop list-group gap-3">
-				<c:forEach var="peer" items="${peers}">
+			<ul class="peerstop list-group gap-3">
+			
+			<c:forEach var="peer" items="${peers}">
 				<div class="peer bg-light">
 				<li class="list-group-item">
 				 	<div class="row">
@@ -35,7 +49,11 @@
 						</div>
 					</div>
 					<hr class="peerhr">
+					
+					<c:forEach var="id" items="${existinguser}">
+					<c:if test="${peer[0]==id}">
 					<div class="row mb-1">
+					
 						<div class="col-12 col-md-2 mini">教えられる</div>
 						<div class="col-10">
 							<c:forEach var="trick_aArray" items="${peersTrick_a}">
@@ -45,9 +63,14 @@
 									</div>
 								</c:if>
 							</c:forEach>
-						
 						</div>
+					
 					</div>
+					</c:if>
+					</c:forEach>
+					
+					
+					
 					<hr class="peerhr">
 					
 					<div class="row mb-1">
@@ -73,5 +96,6 @@
 	</div>
 </div>
 <jsp:include page="menu.jsp"/>
+
 </body>
 </html>
