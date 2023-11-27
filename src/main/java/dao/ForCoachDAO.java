@@ -21,8 +21,6 @@ public class ForCoachDAO {
 	        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 	    }
 		
-		List<String> coaches=forCoachModel.getCoachesList();
-		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 	        conn.setAutoCommit(true);
         	String sql = "select id from trick_a where trick = ?;";
@@ -30,8 +28,32 @@ public class ForCoachDAO {
         	stmt.setString(1, forCoachModel.getTrick());
 	        ResultSet rs=stmt.executeQuery();
 	        
+	        List<String> coachesList=forCoachModel.getCoachesList();
+	        
 	        while(rs.next()) {
-	        	coaches.add(rs.getString(1));
+	        	coachesList.add(rs.getString(1));
+//	        	System.out.println(rs.getString(1));
+	        }
+	        
+//	        for(String coach:coachesList) {
+//	        	System.out.println(coach);
+//	        }
+	        
+	        forCoachModel.setCoachesList(coachesList);
+	        System.out.println(coachesList.size());	//チェック用
+	        
+	        if(coachesList!=null) {
+		        String[] coaches=new String[coachesList.size()];
+//		        System.out.println(coaches.length); //チェック用
+		        
+		        int i=0;
+		        for(String values:coachesList) {
+		        	coaches[i]=values;
+		        	System.out.println(coaches[i]);	
+		        	i=i+1;
+		        }
+		        
+		        forCoachModel.setCoaches(coaches);
 	        }
 	        
 		}catch(SQLException e) {
@@ -42,7 +64,6 @@ public class ForCoachDAO {
 			
 		}
 		
-		forCoachModel.setCoachesList(coaches);
 		return forCoachModel;		
 	}
 		

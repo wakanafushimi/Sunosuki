@@ -33,20 +33,27 @@ public class ForCoachServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		if(request.getParameter("trick").length()!=0) {
-		String trick=request.getParameter("trick");
-		ForCoachModel forCoachModel=new ForCoachModel();
-		forCoachModel.setTrick(trick);
-		ForCoachDAO forCoachDAO=new ForCoachDAO();
-		forCoachModel=forCoachDAO.getCoaches(forCoachModel);
-		
-		List<String> coaches=forCoachModel.getCoachesList();
-		request.setAttribute("coaches",coaches);
-		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforpeers.jsp");
-		dispatcher.forward(request, response);
-		
+		if(request.getParameter("trick").length()!=0 && request.getParameter("trick")!=null) {
+			
+			String trick=request.getParameter("trick");
+			ForCoachModel forCoachModel=new ForCoachModel();
+			forCoachModel.setTrick(trick);
+			ForCoachDAO forCoachDAO=new ForCoachDAO();
+			forCoachModel=forCoachDAO.getCoaches(forCoachModel);
+			List<String> coachesList=forCoachModel.getCoachesList();
+			String[] coaches=new String[coachesList.size()];
+			coaches=forCoachModel.getCoaches();
+			
+			request.setAttribute("coaches",coaches);
+			
+//			for(String coach:coaches) {
+//				System.out.println("forに入った");
+//				System.out.println(coach);
+//			}
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("lookforcoaches.jsp");
+			dispatcher.forward(request, response);
+			
 		}
 	}
 

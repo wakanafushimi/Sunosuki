@@ -48,7 +48,7 @@ hr{
 }
 
 
-/* --画像-- */
+/* ---------------画像--------------- */
 .imgcontainer{
 	width:200px !important;
 	height:200px !important;
@@ -67,7 +67,7 @@ img{
 	padding:0 !important;
 	
 }
-/* -------- */
+/* ---------------------------------- */
 
 
 .trick-card{
@@ -109,10 +109,10 @@ img{
 	font-size:11px !important;
 }
 
+.showtop{
+	margin-top:100px !important;
+}
+.showbottom	{
+	margin-bottom:100px !important;
+}
 
-/*@media(min-width:960px){*/
-	.showtop{
-		margin-top:100px !important;
-	}
-	
-/*}*/
