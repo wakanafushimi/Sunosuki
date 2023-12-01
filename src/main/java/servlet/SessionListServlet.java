@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.SessionListDAO;
 import model.SessionListModel;
@@ -39,8 +40,9 @@ public class SessionListServlet extends HttpServlet {
 		List<String[]> sessionList=sessionListModel.getSessionList();
 		List<List<String>> memberList=sessionListModel.getMemberList();
 		
-		request.setAttribute("sessionList",sessionList);
-		request.setAttribute("memberList",memberList);
+		HttpSession session = request.getSession();
+		session.setAttribute("sessionList",sessionList);
+		session.setAttribute("memberList",memberList);
 		
 		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforsession.jsp");
 		dispatcher.forward(request, response);

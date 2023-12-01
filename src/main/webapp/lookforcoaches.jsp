@@ -29,7 +29,9 @@
 						<div class="col-5 m-2 ms-3 imgcontainerPeers"><img src="uploads/${peer[1]}"  class="rounded-circle img-fluid"></div>
 						<div class="col-4 peername pt-4"><p>${peer[2]}</p></div>
 						<div class="col-2 mt-4">
+							<i class="fa-regular fa-heart"></i>
 							<i class="fa-regular fa-calendar-days calender"></i>
+							<i class="fa-regular fa-message"></i>
 						</div>
 					</div>
 					<hr class="peerhr">

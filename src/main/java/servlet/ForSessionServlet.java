@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ForCoachDAO;
-import model.ForCoachModel;
+import dao.ForSessionDAO;
+import model.ForSessionModel;
 
 /**
- * Servlet implementation class ForCoachServlet
+ * Servlet implementation class ForSessionServlet
  */
-@WebServlet("/ForCoachServlet")
-public class ForCoachServlet extends HttpServlet {
+@WebServlet("/ForSessionServlet")
+public class ForSessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ForCoachServlet() {
+    public ForSessionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,26 +33,25 @@ public class ForCoachServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(request.getParameter("trick").length()!=0 && request.getParameter("trick")!=null) {
+		if(request.getParameter("date").length()!=0 && request.getParameter("date")!=null) {
 			
-			String trick=request.getParameter("trick");
-			ForCoachModel forCoachModel=new ForCoachModel();
-			forCoachModel.setTrick(trick);
+			String date=request.getParameter("date");
+			ForSessionModel forSessionModel=new ForSessionModel();
+			forSessionModel.setDate(date);
 			
-			ForCoachDAO forCoachDAO=new ForCoachDAO();
-			forCoachModel=forCoachDAO.getCoaches(forCoachModel);
-			List<String> coachesList=forCoachModel.getCoachesList();
-			String[] coaches=new String[coachesList.size()];
-			coaches=forCoachModel.getCoaches();
+			ForSessionDAO forSessionDAO=new ForSessionDAO();
+			forSessionModel=forSessionDAO.getSessionList(forSessionModel);
+			List<String> sessionList=forSessionModel.getSessionList();
+			String[] sessionArray=new String[sessionList.size()];
+			sessionArray=forSessionModel.getSessionArray();
 			
-			request.setAttribute("coaches",coaches);
-			
-//			for(String coach:coaches) {
-//				System.out.println("forに入った");
-//				System.out.println(coach);
+//			for(String items:sessionArray) {
+//				System.out.println(items);
 //			}
 			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("lookforcoaches.jsp");
+			request.setAttribute("sessionArray",sessionArray);
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("specificsession.jsp");
 			dispatcher.forward(request, response);
 			
 		}

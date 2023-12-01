@@ -65,6 +65,7 @@
 							<img src="uploads/${peer[1]}"  class="rounded-circle img-fluid">
 						</div>
 						<div class="peersicon ps-2">
+							<i class="fa-regular fa-heart"></i>
 							<i class="fa-regular fa-calendar-days calender"></i>
 							<i class="fa-regular fa-message"></i>
 						</div>

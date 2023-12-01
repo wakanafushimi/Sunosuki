@@ -34,7 +34,7 @@
 </nav>
 
 <div class="container">
-	<form action="ForCoachServlet" method="get">
+	<form action="ForSessionServlet" method="get">
 		<div class="row justify-content-center showtop">
 		<div class="row col-lg-6">
 			<div class="col-lg-5 col-12">
