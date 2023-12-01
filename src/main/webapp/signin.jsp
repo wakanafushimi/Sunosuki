@@ -30,7 +30,7 @@
         
         <div class="container">
         <div class="row">
-            <form action="LoginServlet" method="get" class="buttons col-8 col-lg-4 mx-auto p-4 loginform">
+            <form action="LoginServlet" method="get" class="buttons col-12 col-lg-4 mx-auto p-4 loginform showtoplogin">
 
                 <div class="buttons_item">
                     

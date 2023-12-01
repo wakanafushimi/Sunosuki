@@ -21,7 +21,7 @@
     	<div class="topbutton col-12 col-md-4 p-3">
         <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link" href="">Look For Sessions </a>
+    <a class="nav-link" href="SessionListServlet">Look For Sessions </a>
   </li>
   </ul>
   

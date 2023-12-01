@@ -16,7 +16,11 @@
     </head>
 
     <body>
-        <jsp:include page="header.jsp"/>
+        <nav class="navbar bg-body-tertiary bg-light fixed-top">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Sunosuki</span>
+  </div>
+</nav>
 
         <div class="pagetitle">
         <h2>ログインに失敗しました</h2>
