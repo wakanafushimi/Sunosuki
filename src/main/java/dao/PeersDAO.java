@@ -33,7 +33,7 @@ public class PeersDAO {
 	        ResultSet rs=stmt.executeQuery();
 	               
 	        while(rs.next()) {
-	        	String[] peer=new String[6];		        
+	        	String[] peer=new String[8];		        
 		        int columnCount=rs.getMetaData().getColumnCount();	
 		        
 		        for(int i=1;i<=columnCount;i++) {

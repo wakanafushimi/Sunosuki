@@ -16,7 +16,7 @@
 <div class="container">
 	<form action="SessionServlet" method="get">
 	<div class="row showtop justify-content-center">
-	<div class="col-lg-6 loginform p-4">
+	<div class="col-lg-6 greybox p-4">
 		<div class="">
 			<label class="form-label">日付</label>
 			<input type="date" class="form-control" name="date"></input>
@@ -25,6 +25,7 @@
 			<label class="form-label">ゲレンデ</label>
 			<select name="location" class="form-control">
 				<option value="">スキー場を選択してください</option>
+				<option value="resort">resort</option>
 				<option value="菅平高原スノーリゾート">菅平高原スノーリゾート</option>
 				<option value="竜王スキーパーク">竜王スキーパーク</option>
 				<option value="戸狩温泉スキー場">戸狩温泉スキー場</option>

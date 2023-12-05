@@ -24,7 +24,7 @@
 			<c:forEach var="specificItem" items="${sessionArray}">
 			<c:forEach var="sessiondetail" items="${sessionList}">
 			<c:if test="${specificItem==sessiondetail[0]}">
-				<li class="list-group-item peer bg-light mt-3">
+				<li class="list-group-item bg-light mt-3">
 				<div class="row">
 					<div class="col-9">
 					 	<div class="row mb-1">

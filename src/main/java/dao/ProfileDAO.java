@@ -40,7 +40,7 @@ public class ProfileDAO {
 	        	
  	        	//id未登録だったら、idから全てinsert
  	        	if(!rs.next()) { 	 	        	
- 	        		String sqlIn = "insert into userdetail values(?,?,?,?,?,?);";
+ 	        		String sqlIn = "insert into userdetail values(?,?,?,?,?,?,?,?);";
 // 	        		System.out.println("id未登録として分岐");
  	        		try(PreparedStatement stmtIn = conn.prepareStatement(sqlIn)){
  	        		stmtIn.setString(1, loginModel.getId());
@@ -49,6 +49,8 @@ public class ProfileDAO {
 	        		stmtIn.setString(4, profileModel.getPref());
 	        		stmtIn.setString(5, profileModel.getCar());
 	        		stmtIn.setString(6, profileModel.getSelfintro());
+	        		stmtIn.setString(7, profileModel.getStyle());
+	        		stmtIn.setString(8, profileModel.getGeer());
 //	        		System.out.println("id未登録ケースsetDetail成功");
 	        		stmtIn.executeUpdate();
 	        		conn.commit();
@@ -73,6 +75,7 @@ public class ProfileDAO {
  		        		String sqlImg=" UPDATE userdetail SET img = ? WHERE id = ?;";
  		        		try(PreparedStatement stmtImg = conn.prepareStatement(sqlImg)){
  		        		stmtImg.setString(1, profileModel.getImg());
+// 		        		System.out.println("proifleModelのimg:"+profileModel.getImg());
  		        		stmtImg.setString(2, loginModel.getId());
  		        		stmtImg.executeUpdate(); 
  		        		conn.commit();
@@ -88,6 +91,7 @@ public class ProfileDAO {
  	        			String sqlUsername=" UPDATE userdetail SET username = ? WHERE id = ?;";
  	        			try(PreparedStatement stmtUsername = conn.prepareStatement(sqlUsername)){
  	        			stmtUsername.setString(1, profileModel.getUsername());
+// 	        			System.out.println("proifleModelのusername:"+profileModel.getUsername());
  	        			stmtUsername.setString(2, loginModel.getId());
  	        			stmtUsername.executeUpdate(); 
  	        			conn.commit();
@@ -102,6 +106,7 @@ public class ProfileDAO {
  		        		String sqlPref=" UPDATE userdetail SET pref = ? WHERE id = ?;";
  		        		try(PreparedStatement stmtPref = conn.prepareStatement(sqlPref)){
  		        		stmtPref.setString(1, profileModel.getPref());
+// 		        		System.out.println("proifleModelのpref:"+profileModel.getPref());
  		        		stmtPref.setString(2, loginModel.getId());
  		        		stmtPref.executeUpdate(); 
  		        		conn.commit();
@@ -116,8 +121,38 @@ public class ProfileDAO {
  		        		String sqlCar=" UPDATE userdetail SET car = ? WHERE id = ?;";
  		        		try(PreparedStatement stmtCar = conn.prepareStatement(sqlCar)){
  		        		stmtCar.setString(1, profileModel.getCar());
+// 		        		System.out.println("proifleModelのcar:"+profileModel.getCar());
  		        		stmtCar.setString(2, loginModel.getId());
  		        		stmtCar.executeUpdate(); 
+ 		        		conn.commit();
+ 		        		}catch(SQLException e) {
+ 		        			e.printStackTrace();
+ 		        			conn.rollback();
+ 	 	        			System.out.println(e.getMessage());
+ 		        		}
+ 	 	        	}
+ 	        		
+ 	        		if(profileModel.getStyle()!=null) {
+ 		        		String sqlStyle=" UPDATE userdetail SET style = ? WHERE id = ?;";
+ 		        		try(PreparedStatement stmtStyle = conn.prepareStatement(sqlStyle)){
+ 		        		stmtStyle.setString(1, profileModel.getStyle());
+// 		        		System.out.println("proifleModelのstyle:"+profileModel.getStyle());
+ 		        		stmtStyle.setString(2, loginModel.getId());
+ 		        		stmtStyle.executeUpdate(); 
+ 		        		conn.commit();
+ 		        		}catch(SQLException e) {
+ 		        			e.printStackTrace();
+ 		        			conn.rollback();
+ 	 	        			System.out.println(e.getMessage());
+ 		        		}
+ 	 	        	}
+ 	        		if(profileModel.getGeer()!=null) {
+ 		        		String sqlGeer=" UPDATE userdetail SET geer = ? WHERE id = ?;";
+ 		        		try(PreparedStatement stmtGeer = conn.prepareStatement(sqlGeer)){
+ 		        		stmtGeer.setString(1, profileModel.getGeer());
+// 		        		System.out.println("proifleModelのgeer:"+profileModel.getGeer());
+ 		        		stmtGeer.setString(2, loginModel.getId());
+ 		        		stmtGeer.executeUpdate(); 
  		        		conn.commit();
  		        		}catch(SQLException e) {
  		        			e.printStackTrace();
@@ -132,8 +167,8 @@ public class ProfileDAO {
  		        		
  		        		try(PreparedStatement stmtSelfintro = conn.prepareStatement(sqlSelfintro)){
  		        		stmtSelfintro.setString(1, profileModel.getSelfintro());
+// 		        		System.out.println("proifleModelのselfintro:"+profileModel.getSelfintro());
  		        		stmtSelfintro.setString(2, loginModel.getId());
-// 		        		System.out.println("selfintro更新OK");
  		        		stmtSelfintro.executeUpdate(); 
  		        		conn.commit();
  		        		}catch(SQLException e) {
@@ -180,7 +215,6 @@ public class ProfileDAO {
 	        
 	        while(rs.next()) {
 	        
-	        
 	        String img=rs.getString("img");
 	        profileModel.setImg(img);
 	        
@@ -192,6 +226,12 @@ public class ProfileDAO {
 	        
 	        String car=rs.getString("car");
 	        profileModel.setCar(car);
+	        
+	        String style=rs.getString("style");
+	        profileModel.setStyle(style);
+	        
+	        String geer=rs.getString("geer");
+	        profileModel.setGeer(geer);
 	        
 	        String selfintro=rs.getString("selfintro");
 	        profileModel.setSelfintro(selfintro); 

@@ -68,8 +68,8 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-5"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
-						<div class="col-lg-2 col-5"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
-						<div class="col-lg-2 col-5"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
+						<div class="col-lg-2 col-3"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
+						<div class="col-lg-2 col-3"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
 					</div>
 					</div>
 					<div class="col-2">

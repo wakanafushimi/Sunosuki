@@ -50,6 +50,7 @@
                 			<p class="text-muted mb-0">
                 				<select name="pref" class="form-select">
 					              <option value="">${newprofileModel.pref }</option>
+					              <option value="tokyo">tokyo</option>
 								  <option value="北海道">北海道</option>
 								  <option value="青森県">青森県</option>
 								  <option value="岩手県">岩手県</option>
@@ -108,7 +109,31 @@
               			</div>
               			<div class="col-sm-9">
                 			<p class="text-muted mb-0">
-                				<input type="radio" name="car" id="yes" value="あり" class="form-check-input">あり<input type="radio" name="car" id="no" value="なし" class="form-check-input">なし
+                				<input type="radio" name="car" id="yes" value="ari" class="form-check-input">あり<input type="radio" name="car" id="no" value="no" class="form-check-input">なし
+                            </p>
+              			</div>
+            		</div><!-- row -->
+            		<hr>
+            		
+            		<div class="row">
+              			<div class="col-sm-3">
+                			<p class="mb-0">滑りのスタイル</p>
+              			</div>
+              			<div class="col-sm-9">
+                			<p class="text-muted mb-0">
+                				<input type="text" name="style" class="form-control" placeholder="${newprofileModel.style}">
+                            </p>
+              			</div>
+            		</div><!-- row -->
+            		<hr>
+            		
+            		<div class="row">
+              			<div class="col-sm-3">
+                			<p class="mb-0">ギア</p>
+              			</div>
+              			<div class="col-sm-9">
+                			<p class="text-muted mb-0">
+                				<textarea name="geer" class="form-control" placeholder="${newprofileModel.geer}"></textarea>
                             </p>
               			</div>
             		</div><!-- row -->
@@ -120,7 +145,7 @@
               			</div>
               			<div class="col-sm-9">
                 			<p class="text-muted mb-0">
-                				<textarea name="selfintro" value="" placeholder="${newprofileModel.selfintro }" class="form-control"></textarea>
+                				<textarea name="selfintro" placeholder="${newprofileModel.selfintro }" class="form-control"></textarea>
                 			</p>
               			</div>
             		</div><!-- row -->
@@ -131,7 +156,7 @@
         </div><!-- col-lg-8 profile -->
         
         <div class="editbutton col-12"> 
-        	<input type="submit" class="center" value="更新">
+        	<input type="submit" class="center showbottom" value="更新">
         </div>
 	</div><!-- row -->
 

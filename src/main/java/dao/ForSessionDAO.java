@@ -58,6 +58,7 @@ public class ForSessionDAO {
 	        
 		}catch(SQLException e) {
 			e.printStackTrace();
+			System.out.println("ForSessionDAOのエラー");
 			System.out.println("エラー1"+e.getMessage());
 			System.out.println("SQL State: " + e.getSQLState());
 		    System.out.println("Vendor Error Code: " + e.getErrorCode());

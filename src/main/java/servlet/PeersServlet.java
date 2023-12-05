@@ -60,7 +60,7 @@ public class PeersServlet extends HttpServlet {
 		session.setAttribute("peersTrick_a",peersTrick_a);
 		session.setAttribute("peersTrick_b",peersTrick_b);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforpeers.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/lookforpeers.jsp");
 		dispatcher.forward(request, response);
 	}
 

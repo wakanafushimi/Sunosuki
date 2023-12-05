@@ -5,15 +5,8 @@ public class ProfileModel {
 	private String username=null;
 	private String pref=null;
 	private String car=null;
-	
-//	private String trick_a_1;
-//	private String trick_a_2;
-//	private String trick_a_3;
-//	private String trick_b_1;
-//	private String trick_b_2;
-//	private String trick_b_3;
-	
-	
+	private String style=null;
+	private String geer=null;
 	private String selfintro;
 	
 	
@@ -52,4 +45,20 @@ public class ProfileModel {
 	public String getSelfintro() {
 		return selfintro;
 	}
+	
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	public String getStyle() {
+		return style;
+	}
+	
+	public void setGeer(String geer) {
+		this.geer = geer;
+	}
+	public String getGeer() {
+		return geer;
+	}
+	
+	
 }

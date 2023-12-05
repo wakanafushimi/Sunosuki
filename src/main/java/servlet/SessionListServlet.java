@@ -44,7 +44,7 @@ public class SessionListServlet extends HttpServlet {
 		session.setAttribute("sessionList",sessionList);
 		session.setAttribute("memberList",memberList);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforsession.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/lookforsession.jsp");
 		dispatcher.forward(request, response);
 		
 	}

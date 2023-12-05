@@ -15,7 +15,12 @@ body::before{
     height:100vh;
 }
 .pagetitle{
-	margin-top:60px !important;
+	margin-top:25px !important;
+}
+@media(min-width:960px){
+	.pagetitle{
+		margin-top:60px !important;
+	}
 }
 .center{
 	display:block !important;
@@ -29,7 +34,7 @@ a{
 }
 
 
-.loginform{
+.greybox{
 	background-color:rgba(248, 249, 250,0.5);
 	border-radius:10px;
 }
@@ -55,28 +60,38 @@ hr{
 
 /* ---------------画像--------------- */
 .imgcontainer{
-	width:230px !important;
 	height:230px !important;
-	padding:0 !important;
+	padding:20px;
+	border-radius:2%;
 }
-
+@media(min-width:960px){
+	.imgcontainer{
+		width:230px;
+	}
+}
 img{
 	width:100% !important;
 	height:100% !important;
 	object-fit: cover;
-	border-radius:3% !important;
+	border-radius:2%;
 }
 
 .imgcontainerPeers{
-	width:70px !important;
-	height:70px !important;
-	padding:0 !important;
+	width:70px;
+	height:70px;
+	padding:0;
 	
 }
 /* ---------------------------------- */
+.showtop{
+	margin-top:25px !important;
+}
 @media(min-width:960px){
+	.showtop{
+		margin-top:60px !important;
+	}
 	.profiletop{
-		margin-top:57px !important;
+		margin-top:60px;
 	}
 }
 
@@ -84,10 +99,12 @@ img{
 	margin-bottom:200px !important;
 }
 .minus{
-	padding:1px 5px !important;
+	width:26px;
+	height:26px;
 }
 .plus{
-	padding:0px 6px !important;
+	width:26px;
+	height:26px;
 }
 .minus,.plus{
 	border:initial !important;
@@ -96,6 +113,9 @@ img{
 }
 .fa-plus,.fa-minus{
 	color:#fff;
+}
+.fa-minus{
+	padding:4px !important;
 }
 
 .peer{
@@ -118,9 +138,6 @@ img{
 	font-size:11px !important;
 }
 
-.showtop{
-	margin-top:60px !important;
-}
 .showbottom	{
 	margin-bottom:100px !important;
 }

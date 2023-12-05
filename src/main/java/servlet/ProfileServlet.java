@@ -46,7 +46,7 @@ public class ProfileServlet extends HttpServlet {
 		newprofileModel=profileDAO.getDetail(loginModel);
 		
 		session.setAttribute("newprofileModel", newprofileModel);
-		RequestDispatcher dispatcher=request.getRequestDispatcher("profile.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/profile.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -72,15 +72,32 @@ public class ProfileServlet extends HttpServlet {
 			
 			img=fileName;
 		}
+//		System.out.println("img入力値:"+img);
 		
 		String username=null;
 		username=request.getParameter("username");
+//		System.out.println("username入力値:"+username);
+		
 		String pref=null;
 		pref=request.getParameter("pref");
+//		System.out.println("pref入力値:"+pref);
+		
 		String car=null;
 		car=request.getParameter("car");
+//		System.out.println("car入力値:"+car);
+		
+		String style=null;
+		style=request.getParameter("style");
+//		System.out.println("style入力値:"+style);
+		
+		String geer=null;
+		geer=request.getParameter("geer");
+//		System.out.println("geer入力値:"+geer);
+		
 		String selfintro=null;
 		selfintro=request.getParameter("selfintro");
+//		System.out.println("selfintro入力値:"+selfintro);
+		
 		
 		//入力がnullだったときはgetDetailして↑に代入
 		ProfileModel profileModel=new ProfileModel();
@@ -101,6 +118,12 @@ public class ProfileServlet extends HttpServlet {
 		if(car==null) {
 			car=profileModel.getCar();
 		}
+		if(style.length()==0) {
+			style=profileModel.getStyle();
+		}
+		if(geer.length()==0) {
+			geer=profileModel.getGeer();
+		}
 		if(selfintro.length()==0) {
 			selfintro=profileModel.getSelfintro();
 		}
@@ -110,6 +133,8 @@ public class ProfileServlet extends HttpServlet {
 		profileModel.setUsername(username);
 		profileModel.setPref(pref);
 		profileModel.setCar(car);
+		profileModel.setStyle(style);
+		profileModel.setGeer(geer);
 		profileModel.setSelfintro(selfintro);
 
 		profileDAO.setDetail(loginModel, profileModel);
@@ -119,7 +144,7 @@ public class ProfileServlet extends HttpServlet {
 		newprofileModel=profileDAO.getDetail(loginModel);
 		session.setAttribute("newprofileModel", newprofileModel);	
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("profile.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/profile.jsp");
 		dispatcher.forward(request, response);
 	}
 

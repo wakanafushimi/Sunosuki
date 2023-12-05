@@ -68,7 +68,7 @@ public class SessionListDAO {
             	ResultSet rs3=stmt3.executeQuery();
             	
             	while(rs3.next()) {
-            		int num=rs3.getInt("count(*)")+1;
+            		int num=rs3.getInt("count(*)");
             		sessiondetail[5]=String.valueOf(num);
             	}
             	
@@ -92,7 +92,7 @@ public class SessionListDAO {
                 	}
                 	
                 	//メンバーの車の台数を取得
-                	String sql6=" select count(*) from userdetail where id=? and car='あり';";
+                	String sql6="select count(*) from userdetail where id=? and car='ari';";
                 	PreparedStatement stmt6 = conn.prepareStatement(sql6);
                 	stmt6.setString(1,rs4.getString("memberId"));
                 	ResultSet rs6=stmt6.executeQuery();
@@ -106,6 +106,7 @@ public class SessionListDAO {
                 	if(cars==0) {
                 		carsStr="0";
                 	}
+//                	System.out.println(carsStr);	
                 	sessiondetail[6]=carsStr;
             	}
             	
@@ -115,6 +116,7 @@ public class SessionListDAO {
         	
 		}catch(SQLException e) {
 			e.printStackTrace();
+			System.out.println("SessionListDAOのエラー");
 			System.out.println(e.getMessage());
 			System.out.println("SQL State: " + e.getSQLState());
 		    System.out.println("Vendor Error Code: " + e.getErrorCode());

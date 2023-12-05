@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.LoginModel;
@@ -22,6 +23,8 @@ public class SessionDAO {
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 	        conn.setAutoCommit(true);
+	        
+	        //createsessionの入力値をsessionテーブルにinsert
         	String sql = "insert into session values (null,?,?,?,?);";
         	PreparedStatement stmt = conn.prepareStatement(sql);
 //        	System.out.println(sessionModel.getDate()+sessionModel.getLocation()+sessionModel.getMessage());
@@ -30,9 +33,26 @@ public class SessionDAO {
         	stmt.setString(3,sessionModel.getLocation());
         	stmt.setString(4,sessionModel.getMessage());
         	stmt.executeUpdate();
-	       
+        	
+        	//作ったsessionのsessionIdを取得
+        	int sessionId=0;
+        	String sql1="select max(sessionId) as maxsessionId from session;";
+        	PreparedStatement stmt1 = conn.prepareStatement(sql1);
+        	ResultSet rs=stmt1.executeQuery();
+        	while(rs.next()) {
+        		sessionId=rs.getInt("maxsessionId");
+        	}
+        	
+        	//メンバーとして作成者も追加
+        	String sql2="insert into sessionmember values (?,?);";
+        	PreparedStatement stmt2=conn.prepareStatement(sql2);
+        	stmt2.setInt(1,sessionId);
+        	stmt2.setString(2,loginModel.getId());
+        	stmt2.executeUpdate();
+        	
 		}catch(SQLException e) {
 			e.printStackTrace();
+			System.out.println("SessionDAOのエラー");
 			System.out.println(e.getMessage());
 			System.out.println("SQL State: " + e.getSQLState());
 		    System.out.println("Vendor Error Code: " + e.getErrorCode());

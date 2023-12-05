@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		session.setAttribute("loginModel",loginModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("registerCompleted.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/registerCompleted.jsp");
 		dispatcher.forward(request,response);
 	
 	}
@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		session.setAttribute("loginModel",loginModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher(forwardPath);
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/"+forwardPath);
 		dispatcher.forward(request,response);
 	}
 

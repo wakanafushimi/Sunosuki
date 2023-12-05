@@ -51,7 +51,7 @@ public class SessionServlet extends HttpServlet {
 		SessionDAO sessionDAO=new SessionDAO();
 		sessionDAO.setSession(sessionModel, loginModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("createsessiondone.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/createsessiondone.jsp");
 		dispatcher.forward(request, response);
 	}
 
