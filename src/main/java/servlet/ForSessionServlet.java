@@ -51,7 +51,7 @@ public class ForSessionServlet extends HttpServlet {
 			
 			request.setAttribute("sessionArray",sessionArray);
 			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/specificsession.jsp");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("specificsession.jsp");
 			dispatcher.forward(request, response);
 			
 		}

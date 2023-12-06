@@ -5,12 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Sunosuki</title>
-<link rel="stylesheet" href="style01.css">
 <script src="https://kit.fontawesome.com/5235b688ad.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<link rel="stylesheet" href="style01.css">
 </head>
 
 <body>
@@ -19,35 +18,39 @@
 
 <form action="ProfileServlet" method="post" enctype="multipart/form-data">
 <div class="container">
-	<div class="row">
-    	<div class="col-lg-4 mx-auto mb-3">		
-    		<div class="card imginput">
-    			<div class="card-body">
+
+<div class="pagetitle">
+<h3 class="center">Edit Your Profile</h3>
+</div>
+	<div class="row justify-content-center">
+    	<div class="showtop col-lg-3 mb-3">		
+    		<div class="p-3 bg-light imginput">
+    			<div class="">
 					プロフィール画像<input type="file" name="img">
 				</div>
 			</div>
       	</div>
 
-      	<div class="col-lg-8 showtop">
+      	<div class="col-lg-6 profiletop showbottom">
         	<div class="card mb-4">
           		<div class="card-body">
           
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">ユーザネーム</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">ユーザネーム</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0"><input type="text" name="username" placeholder="${newprofileModel.username}" class="form-control"></p>
+              			<div class="col-8">
+                			<p class="text-muted"><input type="text" name="username" placeholder="${newprofileModel.username}" class="form-control"></p>
               			</div>
             		</div><!-- row -->
-            		<hr>
+            		<hr class="peerhr">
             
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">都道府県</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">都道府県</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0">
+              			<div class="col-8">
+                			<p class="text-muted">
                 				<select name="pref" class="form-select">
 					              <option value="">${newprofileModel.pref }</option>
 					              <option value="tokyo">tokyo</option>
@@ -101,63 +104,62 @@
 								</select></p>
               			</div>
             		</div><!-- row -->
-            		<hr>
+            		<hr class="peerhr">
             
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">車の有無</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">車の有無</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0">
+              			<div class="col-8">
+                			<p class="text-muted">
                 				<input type="radio" name="car" id="yes" value="ari" class="form-check-input">あり<input type="radio" name="car" id="no" value="no" class="form-check-input">なし
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr>
+            		<hr class="peerhr">
             		
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">滑りのスタイル</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">滑りのスタイル</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0">
+              			<div class="col-8">
+                			<p class="text-muted">
                 				<input type="text" name="style" class="form-control" placeholder="${newprofileModel.style}">
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr>
+            		<hr class="peerhr">
             		
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">ギア</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">ギア</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0">
+              			<div class="col-8">
+                			<p class="text-muted">
                 				<textarea name="geer" class="form-control" placeholder="${newprofileModel.geer}"></textarea>
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr>
+            		<hr class="peerhr">
             
-            		<div class="row">
-              			<div class="col-sm-3">
-                			<p class="mb-0">メッセージ</p>
+            		<div class="row mt-2">
+              			<div class="col-4">
+                			<p class="mini">メッセージ</p>
               			</div>
-              			<div class="col-sm-9">
-                			<p class="text-muted mb-0">
+              			<div class="col-8">
+                			<p class="text-muted">
                 				<textarea name="selfintro" placeholder="${newprofileModel.selfintro }" class="form-control"></textarea>
                 			</p>
               			</div>
             		</div><!-- row -->
-          		
+            		<hr class="peerhr">
+            		
+            		<div class="center"> 
+            			<input type="submit" class="btn-primary btn btn-sm mt-2" value="更新">
+       				</div>
        			</div><!-- card-body -->
         	</div><!-- card mb-4 -->
-        
         </div><!-- col-lg-8 profile -->
-        
-        <div class="editbutton col-12"> 
-        	<input type="submit" class="center showbottom" value="更新">
-        </div>
 	</div><!-- row -->
 
 </div><!-- container -->

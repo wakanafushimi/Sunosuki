@@ -12,6 +12,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
+<script src="script.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
@@ -67,13 +68,13 @@
 						<div><i class="fa-regular fa-message"></i><c:out value="${sessiondetail[3]}"/></div>
 					</div>
 					<div class="row">
-						<div class="col-lg-5"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
-						<div class="col-lg-2 col-3"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
-						<div class="col-lg-2 col-3"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
+						<div class="col-lg-5 semi"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
+						<div class="col-lg-2 col-6"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
+						<div class="col-lg-2 col-6"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
 					</div>
 					</div>
-					<div class="col-2">
-					<button class="btn btn-primary btn-sm">Join</button>
+					<div class="col-2 center">
+						<button class="btn btn-primary btn-sm" onclick="changeJoin()" id="join">Join</button>
 					</div>
 				</div>
 				</li>

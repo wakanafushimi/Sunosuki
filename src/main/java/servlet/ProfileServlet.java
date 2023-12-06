@@ -46,7 +46,7 @@ public class ProfileServlet extends HttpServlet {
 		newprofileModel=profileDAO.getDetail(loginModel);
 		
 		session.setAttribute("newprofileModel", newprofileModel);
-		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/profile.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("profile.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -144,7 +144,7 @@ public class ProfileServlet extends HttpServlet {
 		newprofileModel=profileDAO.getDetail(loginModel);
 		session.setAttribute("newprofileModel", newprofileModel);	
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/profile.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("profile.jsp");
 		dispatcher.forward(request, response);
 	}
 

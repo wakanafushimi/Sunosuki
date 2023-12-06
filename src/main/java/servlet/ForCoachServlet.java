@@ -52,7 +52,7 @@ public class ForCoachServlet extends HttpServlet {
 //				System.out.println(coach);
 //			}
 			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/lookforcoaches.jsp");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("lookforcoaches.jsp");
 			dispatcher.forward(request, response);
 			
 		}

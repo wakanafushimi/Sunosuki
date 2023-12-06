@@ -10,7 +10,7 @@
     <a class="nav-link" href="#"><i class="fa-regular fa-calendar-days"></i></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../WEB-INF/createsession.jsp"><i class="fa-solid fa-pen-to-square"></i></a>
+    <a class="nav-link" href="createsession.jsp"><i class="fa-solid fa-pen-to-square"></i></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="index.jsp"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>

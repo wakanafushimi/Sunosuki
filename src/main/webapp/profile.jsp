@@ -35,73 +35,73 @@
         <div class="card mb-4">
           <div class="card-body">
           
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="mb-2 mt-1 mini">ユーザネーム</p>
+                <p class="mini">ユーザネーム</p>
               </div>
               <div class="col-8">
-                <p class="text-muted mt-1">${newprofileModel.username }</p>
+                <p class="text-muted">${newprofileModel.username }</p>
               </div>
             </div>
             <hr class="peerhr">
             
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="mb-2 mt-1 mini">都道府県</p>
+                <p class="mini">都道府県</p>
               </div>
               <div class="col-8">
-                <p class="text-muted mt-1">${newprofileModel.pref }</p>
+                <p class="text-muted">${newprofileModel.pref }</p>
               </div>
             </div>
             <hr class="peerhr">
             
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="mb-2 mt-1 mini">車の有無</p>
+                <p class="mini">車の有無</p>
               </div>
               <div class="col-8">
-                <p class="text-muted mt-1">${newprofileModel.car}</p>
+                <p class="text-muted">${newprofileModel.car}</p>
               </div>
             </div>
             <hr class="peerhr">
             
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="my-1 mini">滑りのスタイル</p>
+                <p class="mini">滑りのスタイル</p>
               </div>
-              <div class="col-8 mb-2">
-                <p class="text-muted mt-1">${newprofileModel.style}</p>
+              <div class="col-8">
+                <p class="text-muted">${newprofileModel.style}</p>
               </div>
             </div>
             <hr class="peerhr">
             
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="my-1 mini">ギア</p>
+                <p class="mini">ギア</p>
               </div>
-              <div class="col-8 mb-2">
-                <p class="text-muted mt-1">${newprofileModel.geer}</p>
+              <div class="col-8">
+                <p class="text-muted">${newprofileModel.geer}</p>
               </div>
             </div>
             <hr class="peerhr">
             
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-4">
-                <p class="my-1 mini">メッセージ</p>
+                <p class="mini">メッセージ</p>
               </div>
-              <div class="col-8 mb-2">
-                <p class="text-muted mt-1">${newprofileModel.selfintro}</p>
+              <div class="col-8">
+                <p class="text-muted">${newprofileModel.selfintro}</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div> 
-        		<a href="WEB-INF/profile_edit.jsp" class="center"><span class="btn btn-success btn-sm mt-2">編集</span></a>
+        		<a href="profile_edit.jsp" class="center"><span class="btn btn-success btn-sm mt-2">編集</span></a>
        		</div>
           </div>
         </div>
             
-        <div class="card trick-card">
+        <div class="card showbottom">
         <div class="card-body">
             <div class="row">
             

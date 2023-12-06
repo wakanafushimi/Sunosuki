@@ -49,13 +49,6 @@ a{
 .footer{
 	padding-bottom:8px !important;
 }
-.imginput{
-	margin-top:80px;;
-}
-
-hr{
-	height:1px !important;
-}
 
 
 /* ---------------画像--------------- */
@@ -147,6 +140,7 @@ img{
 .fa-regular,.fa-solid{
 	padding-right:5px;
 }
+
 
 /*@media(min-width:960px){*/
 	
