@@ -23,7 +23,6 @@ public class PeersDAO {
 	        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 	    }
 		
-//		System.out.println("getPeersは呼べてる");
 		List<String[]> peers=new ArrayList<>();
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {

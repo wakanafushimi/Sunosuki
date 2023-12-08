@@ -24,12 +24,11 @@
 
     <div class="row justify-content-center">
     	
-	      <div class="showtop col-lg-3 mb-3">	
-		      <div class="p-3 bg-light imgcontainer">	
-				<img src="uploads/${newprofileModel.img}" class="img-fluid">
-			  </div>
-	      </div>
-	     
+	  <div class="showtop col-lg-3 mb-3">	
+		<div class="p-3 bg-light imgcontainer">	
+		  <img src="uploads/${newprofileModel.img}" class="img-fluid">
+		</div>
+	  </div>
 	    
       <div class="col-lg-6 profiletop">
         <div class="card mb-4">

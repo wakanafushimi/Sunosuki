@@ -140,6 +140,9 @@ img{
 .fa-regular,.fa-solid{
 	padding-right:5px;
 }
+.modal{
+	display:none;
+}
 
 
 /*@media(min-width:960px){*/

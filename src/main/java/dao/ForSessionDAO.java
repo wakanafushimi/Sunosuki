@@ -35,9 +35,9 @@ public class ForSessionDAO {
 //	        	System.out.println(rs.getString("sessionId")); //チェック用
 	        }
 	        
-	        for(String session:sessionList) {
-//	        	System.out.println(session); //チェック用
-	        }
+//	        for(String session:sessionList) {
+////	        	System.out.println(session); //チェック用
+//	        }
 	        
 	        forSessionModel.setSessionList(sessionList);
 //	        System.out.println(sessionList.size());	//チェック用
