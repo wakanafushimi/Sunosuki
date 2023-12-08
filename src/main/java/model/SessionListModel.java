@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SessionListModel {
-	String[] sessiondetail=new String[7];
+	String[] sessiondetail=new String[8];
 	List<String[]> sessionList=new ArrayList<>();
-	List<List<String>> memberList=new ArrayList<>();
+	List<List<String>> memberidList=new ArrayList<>();
+	List<List<String>> membernameList=new ArrayList<>();
 	
 
 	public String[] getSessiondetail() {
@@ -23,12 +24,18 @@ public class SessionListModel {
 		this.sessionList = sessionList;
 	}
 	
-	public List<List<String>> getMemberList() {
-		return memberList;
+	public List<List<String>> getMemberidList() {
+		return memberidList;
 	}
-	public void setMemberList(List<List<String>> memberList) {
-		this.memberList = memberList;
+	public void setMemberList(List<List<String>> memberidList) {
+		this.memberidList = memberidList;
 	}
 	
 	
+	public List<List<String>> getMembernameList() {
+		return membernameList;
+	}
+	public void setMembernameList(List<List<String>> membernameList) {
+		this.membernameList = membernameList;
+	}
 }

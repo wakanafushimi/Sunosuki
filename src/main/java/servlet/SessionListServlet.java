@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,16 +36,12 @@ public class SessionListServlet extends HttpServlet {
 		SessionListModel sessionListModel=new SessionListModel();
 		SessionListDAO sessionListDAO=new SessionListDAO();
 		sessionListModel=sessionListDAO.setSession(sessionListModel);
-		List<String[]> sessionList=sessionListModel.getSessionList();
-		List<List<String>> memberList=sessionListModel.getMemberList();
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("sessionList",sessionList);
-		session.setAttribute("memberList",memberList);
+		session.setAttribute("sessionListModel",sessionListModel);
 		
 		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforsession.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 	/**

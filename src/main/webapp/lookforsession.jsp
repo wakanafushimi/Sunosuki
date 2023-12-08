@@ -12,7 +12,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
-<script src="script.js"></script>
+<%-- <script src="script.js"></script> --%>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
@@ -50,12 +50,12 @@
 		</div>
 		</div>
 	</form>
-		
+
 	<div class="row justify-content-center">
 		<div class="col-lg-6 col-12 showbottom">
 			<ul class="list-group">
 			
-			<c:forEach var="sessiondetail" items="${sessionList}">
+			<c:forEach var="sessiondetail" items="${sessionListModel.sessionList}">
 				<li class="list-group-item bg-light mt-3">
 				<div class="row">
 					<div class="col-9">
@@ -69,17 +69,47 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-5 semi"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
-						<div class="col-lg-2 col-6"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
-						<div class="col-lg-2 col-6"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
+						<div class="col-lg-2 col-4 mini"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
+						<div class="col-lg-2 col-4 mini"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
 					</div>
 					</div>
-					<div class="col-2 center">
-						<button class="btn btn-primary btn-sm" onclick="changeJoin()" id="join">Join</button>
-					</div>
+					
+					<c:if test="${loginModel.id!= sessiondetail[7]}">
+					<%--<c:out value="id:${loginModel.id }"/>
+					<c:out value="主催者id:${sessiondetail[7]}"/>--%>
+					
+					<%--<%System.out.println("主催者ではない"); --%>
+					
+					<% 
+						boolean ismember=false; 
+						pageContext.setAttribute("ismember",ismember);
+					%>
+						<c:forEach var="memberid" items="${sessionListModel.memberidList.get(sessiondetail[0]-1)}">
+						<%--<c:out value="メンバー:${memberid}"/> --%>
+							<c:if test="${memberid==loginModel.id}">
+								<%--<%System.out.println("メンバーである"); --%>
+								<div class="col-2 center">
+									<a href="NotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="join">Joined</a>
+								</div>
+								<%ismember=true; %>
+								<%pageContext.setAttribute("ismember",ismember); %>
+							</c:if>
+						</c:forEach>
+						
+						<c:if test="${ismember!=true}">
+						<%--<c:out value="${ismember}"/> --%>
+						<%--<%System.out.println("メンバーではない"); --%>
+							<div class="col-2 center">
+								<a href="JoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
+							</div>
+						</c:if>
+					</c:if>
 				</div>
 				</li>
+				
 			</c:forEach>
-		</ul>
+			</ul>
+		</div>
 	</div>
 	
 </div>

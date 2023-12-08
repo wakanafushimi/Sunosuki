@@ -22,7 +22,7 @@
 			<ul class="list-group">
 			
 			<c:forEach var="specificItem" items="${sessionArray}">
-			<c:forEach var="sessiondetail" items="${sessionList}">
+			<c:forEach var="sessiondetail" items="${sessionListModel.sessionList}">
 			<c:if test="${specificItem==sessiondetail[0]}">
 				<li class="list-group-item bg-light mt-3">
 				<div class="row">
@@ -41,9 +41,28 @@
 						<div class="col-lg-2 col-5"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
 					</div>
 					</div>
-					<div class="col-2">
-					<button class="btn btn-primary btn-sm">Join</button>
-					</div>
+					
+					<c:if test="${loginModel.id!= sessiondetail[7]}">
+					<% 
+						boolean ismember=false; 
+						pageContext.setAttribute("ismember",ismember);
+					%>
+						<c:forEach var="memberid" items="${sessionListModel.memberidList.get(sessiondetail[0]-1)}">
+							<c:if test="${memberid==loginModel.id}">
+								<div class="col-2 center">
+									<a href="NotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="join">Joined</a>
+								</div>
+								<%ismember=true; %>
+								<%pageContext.setAttribute("ismember",ismember); %>
+							</c:if>
+						</c:forEach>
+						
+						<c:if test="${ismember!=true}">
+							<div class="col-2 center">
+								<a href="JoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
+							</div>
+						</c:if>
+					</c:if>
 				</div>
 				</li>
 			</c:if>

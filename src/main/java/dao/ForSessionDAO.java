@@ -35,9 +35,9 @@ public class ForSessionDAO {
 //	        	System.out.println(rs.getString("sessionId")); //チェック用
 	        }
 	        
-//	        for(String session:sessionList) {
+	        for(String session:sessionList) {
 //	        	System.out.println(session); //チェック用
-//	        }
+	        }
 	        
 	        forSessionModel.setSessionList(sessionList);
 //	        System.out.println(sessionList.size());	//チェック用
@@ -49,7 +49,7 @@ public class ForSessionDAO {
 		        int i=0;
 		        for(String values:sessionList) {
 		        	sessionArray[i]=values;
-//		        	System.out.println(sessionArray[i]);	
+		        	System.out.println(sessionArray[i]);	
 		        	i=i+1;
 		        }
 		        

@@ -23,6 +23,7 @@ public class SessionListDAO {
 		//[4]:主催者username
 		//[5]:メンバー数
 		//[6]:車の台数
+		//[7]:主催者のid
 	
 	public SessionListModel setSession(SessionListModel sessionListModel) {
 		try {
@@ -32,7 +33,8 @@ public class SessionListDAO {
 	    }
 		
 		List<String[]> sessionList=sessionListModel.getSessionList();
-		List<List<String>> memberList=sessionListModel.getMemberList();
+		List<List<String>> membernameList=sessionListModel.getMembernameList();
+		List<List<String>> memberidList=sessionListModel.getMemberidList();
 		String userid=null;
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
@@ -43,7 +45,7 @@ public class SessionListDAO {
         	
         	//sessionテーブルの各行について
         	while(rs.next()) {
-        		String[] sessiondetail=new String[7];
+        		String[] sessiondetail=new String[8];
         		
         		sessiondetail[0]=rs.getString("sessionId");
         		sessiondetail[1]=rs.getString("date");
@@ -77,10 +79,14 @@ public class SessionListDAO {
             	PreparedStatement stmt4 = conn.prepareStatement(sql4);
             	stmt4.setString(1,sessiondetail[0]);
             	ResultSet rs4=stmt4.executeQuery();
-            	List<String> member=new ArrayList<>();
+            	List<String> memberid=new ArrayList<>();
+            	List<String> membername=new ArrayList<>();
             	int cars=0;
             	String carsStr=null;
             	while(rs4.next()){
+            		
+            		//メンバーのidをarraylistに格納
+            		memberid.add(rs4.getString("memberId"));
             		
             		//メンバーのusernameを取得しarraylistに格納
             		String sql5="select username from userdetail where id=?;";
@@ -88,7 +94,7 @@ public class SessionListDAO {
                 	stmt5.setString(1,rs4.getString("memberId"));
                 	ResultSet rs5=stmt5.executeQuery();
                 	while(rs5.next()) {
-                		member.add(rs5.getString("username"));
+                		membername.add(rs5.getString("username"));
                 	}
                 	
                 	//メンバーの車の台数を取得
@@ -111,7 +117,10 @@ public class SessionListDAO {
             	}
             	
         		sessionList.add(sessiondetail);
-        		memberList.add(member);
+        		membernameList.add(membername);
+        		memberidList.add(memberid);
+        		
+        		sessiondetail[7]=userid;
         	}
         	
 		}catch(SQLException e) {

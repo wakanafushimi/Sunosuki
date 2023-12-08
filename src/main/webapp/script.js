@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+	
+	//joinボタンの色変える
 	let clickCount=0;
 	const join=document.getElementById("join");
 	
@@ -25,4 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		
 		xhr.send(JSON.stringify({clickStatus:status}));
 	}
+	
+	
+	var test=none;
+	test=window.sessionStorage.getItem([test]);
+	console.log(test);
+	
 });
