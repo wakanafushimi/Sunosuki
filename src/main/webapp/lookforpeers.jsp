@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link headermenu text-black-50"  href="SessionListServlet">Look For Sessions</a>
+          <a class="nav-link headermenu text-black-50"  href="SessionListServlet?date=datenull">Look For Sessions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link headermenu" href="PeersServlet">Look For Peers</a>
@@ -53,39 +53,89 @@
 			</div>
 		</div>
 	</form>
-		
+	
 	<div class="row justify-content-center">
-		<div class="col-lg-6 showbottom">
-			<ul class="peerstop list-group">
+		<div class="col-lg-4 showbottom">
+			<ul class="list-group"> 
 			
-			<c:forEach var="peer" items="${peers}">
-				<li class="list-group-item peer bg-light mt-3 row">
-				<div class="row justify-content-center openmodal"><!-- card本体 -->
-					<div class="col-5 col-lg-3"><!-- 左エリア -->
-						<div class="m-2 imgcontainerPeers">
+			<c:forEach var="peer" items="${peers}"> 
+				<li class="mt-2 list-group-item peerslist">
+				<div class="row openmodal">
+			    	<div class="col-5"><!-- 左エリア -->
+						<div class="imgcontainerPeers">
 							<img src="uploads/${peer[1]}"  class="rounded-circle img-fluid">
-						</div>
-						<div class="peersicon ps-2">
-							<i class="fa-regular fa-heart"></i>
-							<i class="fa-regular fa-calendar-days calender"></i>
-							<i class="fa-regular fa-message"></i>
 						</div>
 					</div><!-- 左エリア -->
 					
-					<div class="col-6 col-lg-8"><!-- 右エリア -->
-						<div class="col-lg-6 col-8 peername mb-1">${peer[2]}</div><!-- 名前 -->
-						
-						<hr class="peerhr">
+					<div class="col-7 justify-content-center"><!-- 右エリア -->
+						<div class="peername mb-1">${peer[2]}</div><!-- 名前 -->
+					</div><!-- 右エリア -->
 					
-						<c:forEach var="id" items="${existinguser}"><!--教えられる技 -->
+				</div><!-- openmodal -->
+				
+				<!-------------------- modal -------------------->
+			
+			<div class="popup">
+			<div>
+			<div class="row mt-3">
+              <div class="col-5">
+                <p class="mini">都道府県</p>
+              </div>
+              <div class="col-7">
+                <p class="semi text-muted mt-2">${peer[3]}</p>
+              </div>
+            </div>
+            <hr class="peerhr">
+            
+            <div class="row">
+              <div class="col-5">
+                <p class="mini">車の有無</p>
+              </div>
+              <div class="col-7">
+                <p class="semi text-muted mt-2">${peer[4]}</p>
+              </div>
+            </div>
+            <hr class="peerhr">
+            
+            <div class="row">
+              <div class="col-5">
+                <p class="mini">滑りのスタイル</p>
+              </div>
+              <div class="col-7">
+                <p class="semi text-muted mt-2">${peer[5]}</p>
+              </div>
+            </div>
+            <hr class="peerhr">
+            
+            <div class="row">
+              <div class="col-5">
+                <p class="mini">ギア</p>
+              </div>
+              <div class="col-7">
+                <p class="semi text-muted mt-2">${peer[6]}</p>
+              </div>
+            </div>
+            <hr class="peerhr">
+            
+            <div class="row">
+              <div class="col-5">
+                <p class="mini">メッセージ</p>
+              </div>
+              <div class="col-7">
+                <p class="semi text-muted mt-2">${peer[7]}</p>
+              </div>
+            </div>
+            <hr class="peerhr">
+            
+            <c:forEach var="id" items="${existinguser}"><!--教えられる技 -->
 							<c:if test="${peer[0]==id}">
-								<div class="row mb-1">
-									<div class="col-lg-4 col-12 mini">教えられる</div>
-									<div class="col-lg-8">
+								<div class="row">
+									<div class="col-5"><p class="mini">教えられる</p></div>
+									<div class="col-7">
 										<c:forEach var="trick_aArray" items="${peersTrick_a}">
 											<c:if test="${trick_aArray[0]==peer[0]}">
-												<div class="d-inline-block pe-2 semi">
-													<c:out value="${trick_aArray[1]}"/>
+												<div class="d-inline-block pe-2">
+													<p class="text-muted semi mt-2"><c:out value="${trick_aArray[1]}"/></p>
 												</div>
 											</c:if>
 										</c:forEach>
@@ -96,168 +146,34 @@
 					
 						<hr class="peerhr">
 						
-						<div class="row mb-1"><!-- 練習中技 -->
-							<div class="col-lg-4 col-12 mini">練習中</div>
-							<div class="col-lg-8">
+						<div class="row"><!-- 練習中技 -->
+							<div class="col-5"><p class="mini">練習中</p></div>
+							<div class="col-7">
 								<c:forEach var="trick_bArray" items="${peersTrick_b}">
 									<c:if test="${trick_bArray[0]==peer[0]}">
-										<div class="d-inline-block pe-2 semi">
-											<c:out value="${trick_bArray[1]}"/>
+										<div class="d-inline-block pe-2">
+											<p class="text-muted semi mt-2"><c:out value="${trick_bArray[1]}"/></p>
 										</div>
 									</c:if>
 								</c:forEach>
 							</div>
 						</div><!-- 練習中技 -->
-					</div><!-- 右エリア -->
-				</div><!-- card本体 -->
+						<hr class="peerhr">
+        	<div class="center"><i class="fa-solid fa-chevron-up"></i></div>
+        	 </div>
+        </div>
 				</li>
-			</c:forEach>
+				</c:forEach>
 			</ul>
+	
 		</div><!-- col-lg-6 -->
 	</div><!-- row -->
-</div>
+	
+	
+			
+</div><!-- container -->
 
-<!-------------------- modal -------------------->
-				<div class="row">
-				<div class="popup">
-					<div class="modal-content">
-						<div class="row justify-content-center">
-    	
-							<div class="showtop col-lg-3 mb-3">	
-								<div class="p-3 bg-light imgcontainer">	
-									<img src="uploads/${peer[1]}" class="img-fluid">
-								</div>
-							</div>
-							
-							<div class="col-lg-6 profiletop">
-								<div class="card mb-4">
-									<div class="card-body">
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">ユーザネーム</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[2]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">都道府県</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[3]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">車の有無</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[4]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">滑りのスタイル</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[5]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">ギア</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[6]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div class="row mt-2">
-											<div class="col-4">
-												<p class="mini">メッセージ</p>
-											</div>
-											<div class="col-8">
-												<p class="text-muted">${peer[7]}</p>
-											</div>
-										</div>
-										<hr class="peerhr">
-										
-										<div>
-											<a href="profile_edit.jsp" class="center"><span class="btn btn-success btn-sm mt-2">編集</span></a>
-										</div>
-									</div>
-								</div>
-								
-								<div class="card showbottom">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-lg-4">
-												<p class="mt-1 mb-2 mini">教えられるトリック</p>
-											</div>
-											
-											<div class="col-lg-8">
-												<div class="text-muted mt-1 mb-2">
-													<c:forEach var="i" items="${trickModel.getTrick_aList()}">
-														<div class="d-inline-block mb-1">
-															<c:out value="${i}"/>
-															<a href="TrickServlet?deleteValuea=${i}" class="minus ms-1"><i class="fa-solid fa-minus"></i></a>
-														</div>
-													</c:forEach>
-													
-													<div class="d-inline-block mb-0">
-														<form action="TrickServlet" method="get">
-															<div class="d-flex">
-																<input type="text" name="trick_a" placeholder="" class="mb-2" size="10">
-																<button type="submit" class="plus ms-1"> <i class="fa-solid fa-plus"></i></button>
-															</div>
-														</form>
-													</div>
-												</div>
-											</div>
-										</div><!-- row -->
-										<hr class="peerhr">
-										
-										<div class="row">
-											<div class="col-lg-4">
-												<p class="mt-1 mb-2 mini">練習中トリック</p>
-											</div>
-											<div class="col-lg-8">
-												<div class="text-muted mt-1 mb-2">
-													<c:forEach var="i" items="${trickModel.getTrick_bList()}">
-														<div class="d-inline-block mb-1">
-															<c:out value="${i}"/>
-															<a href="TrickServlet?deleteValueb=${i}" class="minus ms-1"><i class="fa-solid fa-minus"></i></a>
-														</div>
-													</c:forEach>
-													
-													<div class="d-inline-block mb-0">
-														<form action="TrickServlet" method="get">
-															<div class="d-flex">
-																<input type="text" name="trick_b" placeholder="" class="mb-2" size="10">
-																<button type="submit" class="plus ms-1"><i class="fa-solid fa-plus"></i></button>
-															</div>
-														</form>
-													</div>
-												</div>
-											</div>
-										</div><!-- row -->
-									</div><!-- card-body -->
-								</div><!-- card -->
-							</div><!-- col-lg-6 -->
-						</div><!-- row -->
-					</div><!-- modal-content -->
-				</div><!-- popup -->
-				</div>
+
 				
 <jsp:include page="menu.jsp"/>
 

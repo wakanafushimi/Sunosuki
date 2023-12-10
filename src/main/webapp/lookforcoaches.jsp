@@ -11,63 +11,123 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
+<script src="script.js"></script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
 
 <div class="container">
-<div class="row justify-content-center">
-		<div class="col-md-6 showbottom showtop">
-			<ul class="peerstop list-group gap-3">
-			
+	<div class="row justify-content-center showtop">
+		<div class="row col-lg-6">
+			<div class="col-lg-5 col-12">
+				<a href="PeersServlet"><i class="fa-solid fa-arrow-left"></i>View all Peers</a>
+			</div>
+		</div>
+		
+		<div class="col-lg-6 showbottom">
+			<ul class="list-group">
 			<c:forEach var="coach" items="${coaches}">
 			<c:forEach var="peer" items="${peers}">
 			<c:if test="${coach==peer[0] }">
-				<div class="peer bg-light">
-				<li class="list-group-item">
-					<div class="row">
-						<div class="col-5 m-2 ms-3 imgcontainerPeers"><img src="uploads/${peer[1]}"  class="rounded-circle img-fluid"></div>
-						<div class="col-4 peername pt-4"><p>${peer[2]}</p></div>
-						<div class="col-2 mt-4">
-							<i class="fa-regular fa-heart"></i>
-							<i class="fa-regular fa-calendar-days calender"></i>
-							<i class="fa-regular fa-message"></i>
-						</div>
-					</div>
-					<hr class="peerhr">
-					
-					<div class="row mb-1">
-					
-						<div class="col-12 col-md-2 mini">教えられる</div>
-						<div class="col-10">
-							<c:forEach var="trick_aArray" items="${peersTrick_a}">
-								<c:if test="${trick_aArray[0]==peer[0]}">
-									<div class="d-inline-block pe-2">
-										<c:out value="${trick_aArray[1]}"/>
+				<li class="mt-2 list-group-item peerslist">
+					<div class="row openmodal">
+			    		<div class="col-5"><!-- 左エリア -->
+							<div class="imgcontainerPeers">
+								<img src="uploads/${peer[1]}"  class="rounded-circle img-fluid">
+							</div>
+						</div><!-- 左エリア -->
+						<div class="col-7 justify-content-center"><!-- 右エリア -->
+							<div class="peername mb-1">${peer[2]}</div><!-- 名前 -->
+						</div><!-- 右エリア -->
+					</div><!-- openmodal -->
+				
+				<!-------------------- modal -------------------->
+			
+					<div class="popup">
+						<div class="row mt-3">
+			              <div class="col-5">
+			                <p class="mini">都道府県</p>
+			              </div>
+			              <div class="col-7">
+			                <p class="semi text-muted mt-2">${peer[3]}</p>
+			              </div>
+			            </div>
+			            <hr class="peerhr">
+			            
+			            <div class="row">
+			              <div class="col-5">
+			                <p class="mini">車の有無</p>
+			              </div>
+			              <div class="col-7">
+			                <p class="semi text-muted mt-2">${peer[4]}</p>
+			              </div>
+			            </div>
+			            <hr class="peerhr">
+			            
+			            <div class="row">
+			              <div class="col-5">
+			                <p class="mini">滑りのスタイル</p>
+			              </div>
+			              <div class="col-7">
+			                <p class="semi text-muted mt-2">${peer[5]}</p>
+			              </div>
+			            </div>
+			            <hr class="peerhr">
+			            
+			            <div class="row">
+			              <div class="col-5">
+			                <p class="mini">ギア</p>
+			              </div>
+			              <div class="col-7">
+			                <p class="semi text-muted mt-2">${peer[6]}</p>
+			              </div>
+			            </div>
+			            <hr class="peerhr">
+			            
+			            <div class="row">
+			              <div class="col-5">
+			                <p class="mini">メッセージ</p>
+			              </div>
+			              <div class="col-7">
+			                <p class="semi text-muted mt-2">${peer[7]}</p>
+			              </div>
+			            </div>
+			            <hr class="peerhr">
+			            
+			            <c:forEach var="id" items="${existinguser}"><!--教えられる技 -->
+							<c:if test="${peer[0]==id}">
+								<div class="row">
+									<div class="col-5"><p class="mini">教えられる</p></div>
+									<div class="col-7">
+										<c:forEach var="trick_aArray" items="${peersTrick_a}">
+											<c:if test="${trick_aArray[0]==peer[0]}">
+												<div class="d-inline-block pe-2">
+													<p class="text-muted semi mt-2"><c:out value="${trick_aArray[1]}"/></p>
+												</div>
+											</c:if>
+										</c:forEach>
 									</div>
-								</c:if>
-							</c:forEach>
-						</div>
-					
-					</div>
-						
-					<hr class="peerhr">
-					
-					<div class="row mb-1">
-						<div class="col-12 col-md-2 mini">練習中</div>
-						<div class="col-10">
-							<c:forEach var="trick_bArray" items="${peersTrick_b}">
-								<c:if test="${trick_bArray[0]==peer[0]}">
-									<div class="d-inline-block pe-2">
-										<c:out value="${trick_bArray[1]}"/>
-									</div>
-								</c:if>
-							</c:forEach>
-						</div>
-					</div>
-					
+								</div>
+							</c:if>
+						</c:forEach>
+								
+						<hr class="peerhr">
+						<div class="row"><!-- 練習中技 -->
+							<div class="col-5"><p class="mini">練習中</p></div>
+							<div class="col-7">
+								<c:forEach var="trick_bArray" items="${peersTrick_b}">
+									<c:if test="${trick_bArray[0]==peer[0]}">
+										<div class="d-inline-block pe-2">
+											<p class="text-muted semi mt-2"><c:out value="${trick_bArray[1]}"/></p>
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+						</div><!-- 練習中技 -->
+						<hr class="peerhr">
+		        		<div class="center"><i class="fa-solid fa-chevron-up"></i></div>
+        	 		</div>
 				</li>
-				</div>
 				</c:if>
 				</c:forEach>
 				</c:forEach>

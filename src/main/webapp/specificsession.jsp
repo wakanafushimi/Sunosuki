@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="WEB-INF/top.jsp">Sunosuki</a>
+    <a class="navbar-brand" href="top.jsp">Sunosuki</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,9 +33,17 @@
 </nav>
 
 <div class="container">
+	<div class="row justify-content-center showtop">
+		<div class="row col-lg-6">
+			<div class="col-lg-5 col-12">
+				<a href="SessionListServlet?date=datenull"><i class="fa-solid fa-arrow-left"></i>View all Sessions</a>
+			</div>
+			
+		</div>
+	</div>
 		
 	<div class="row justify-content-center">
-		<div class="col-lg-6 col-12 showbottom showtop">
+		<div class="col-lg-6 col-12 showbottom">
 			<ul class="list-group">
 			
 			<% int count=0;
@@ -71,7 +79,7 @@
 						<c:forEach var="memberid" items="${forSessionModel.spememberList.get(count)}">
 							<c:if test="${memberid==loginModel.id}">
 								<div class="col-2 center">
-									<a href="SpecificNotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="joined">Joined</a>
+									<a href="NotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="joined">Joined</a>
 								</div>
 								<%ismember=true; %>
 								<%pageContext.setAttribute("ismember",ismember); %>
@@ -80,7 +88,7 @@
 						
 						<c:if test="${ismember!=true}">
 							<div class="col-2 center">
-								<a href="SpecificJoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
+								<a href="JoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
 							</div>
 						</c:if>
 					</c:if>

@@ -35,60 +35,60 @@
           <div class="card-body">
           
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">ユーザネーム</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.username }</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">都道府県</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.pref }</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">車の有無</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.car}</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">滑りのスタイル</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.style}</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">ギア</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.geer}</p>
               </div>
             </div>
             <hr class="peerhr">
             
             <div class="row mt-2">
-              <div class="col-4">
+              <div class="col-5">
                 <p class="mini">メッセージ</p>
               </div>
-              <div class="col-8">
+              <div class="col-7">
                 <p class="text-muted">${newprofileModel.selfintro}</p>
               </div>
             </div>
@@ -104,10 +104,10 @@
         <div class="card-body">
             <div class="row">
             
-               <div class="col-lg-4">
+               <div class="col-lg-5">
                	<p class="mt-1 mb-2 mini">教えられるトリック</p>
                </div>
-              	<div class="col-lg-8">
+              	<div class="col-lg-7">
               		<div class="text-muted mt-1 mb-2">
                 		<c:forEach var="i" items="${trickModel.getTrick_aList()}">
                 			<div class="d-inline-block mb-1">
@@ -131,10 +131,10 @@
             <hr class="peerhr">
             		
             <div class="row">
-              	<div class="col-lg-4">
+              	<div class="col-lg-5">
                 	<p class="mt-1 mb-2 mini">練習中トリック</p>
               	</div>
-              	<div class="col-lg-8">
+              	<div class="col-lg-7">
                 	<div class="text-muted mt-1 mb-2">
 	                	<c:forEach var="i" items="${trickModel.getTrick_bList()}">
 		            		<div class="d-inline-block mb-1">

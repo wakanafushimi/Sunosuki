@@ -14,8 +14,9 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="pagetitle">
-<h3 class="center">セッション作成完了</h3>
+<h3 class="center">Done</h3>
 </div>
+<div class="center"><a href="SessionListServlet?date=datenull"><i class="fa-solid fa-arrow-left"></i>View all Sessions</a></div>
 
 <jsp:include page="menu.jsp"/>
 

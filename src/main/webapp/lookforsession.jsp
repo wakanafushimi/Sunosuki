@@ -24,10 +24,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link headermenu"  href="SessionListServlet">Look For Sessions</a>
+          <a class="nav-link headermenu text-black-50" href="SessionListServlet">Look For Sessions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link headermenu text-black-50" href="PeersServlet">Look For Peers</a>
+          <a class="nav-link headermenu" href="PeersServlet">Look For Peers</a>
         </li>
       </ul>
     </div>
