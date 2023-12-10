@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ForSessionModel {
 	private String date;
-	List<String> sessionList=new ArrayList<>();
-	String[] sessionArray=new String[sessionList.size()];
+	List<String> spesessionidList=new ArrayList<>();
+	List<List<String>> spememberList=new ArrayList<>();
 	
 	public String getDate() {
 		return date;
@@ -14,18 +14,18 @@ public class ForSessionModel {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public List<String> getSessionList() {
-		return sessionList;
-	}
-	public void setSessionList(List<String> sessionList) {
-		this.sessionList = sessionList;
-	}
-	public String[] getSessionArray() {
-		return sessionArray;
-	}
-	public void setSessionArray(String[] sessionArray) {
-		this.sessionArray = sessionArray;
-	}
 	
+	public List<String> getSpesessionidList() {
+		return spesessionidList;
+	}
+	public void setSpesessionidList(List<String> spesessionidList) {
+		this.spesessionidList = spesessionidList;
+	}
+	public List<List<String>> getSpememberList() {
+		return spememberList;
+	}
+	public void setSpememberList(List<List<String>> spememberList) {
+		this.spememberList = spememberList;
+	}
 	
 }

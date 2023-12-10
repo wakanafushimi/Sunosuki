@@ -140,8 +140,12 @@ img{
 .fa-regular,.fa-solid{
 	padding-right:5px;
 }
-.modal{
+.popup{
 	display:none;
+	position:absolute;
+	top:40px;
+	left:30vw;
+	width:50vw;
 }
 
 

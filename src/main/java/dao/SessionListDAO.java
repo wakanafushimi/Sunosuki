@@ -32,7 +32,7 @@ public class SessionListDAO {
 	        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 	    }
 		
-		List<String[]> sessionList=sessionListModel.getSessionList();
+		List<String[]> sessiondetailList=sessionListModel.getSessiondetailList();
 		List<List<String>> membernameList=sessionListModel.getMembernameList();
 		List<List<String>> memberidList=sessionListModel.getMemberidList();
 		String userid=null;
@@ -116,11 +116,13 @@ public class SessionListDAO {
                 	sessiondetail[6]=carsStr;
             	}
             	
-        		sessionList.add(sessiondetail);
+            	//主催者useridをsessiondetail[7]に格納
+            	sessiondetail[7]=userid;
+            	
+        		sessiondetailList.add(sessiondetail);
         		membernameList.add(membername);
         		memberidList.add(memberid);
         		
-        		sessiondetail[7]=userid;
         	}
         	
 		}catch(SQLException e) {
@@ -131,7 +133,10 @@ public class SessionListDAO {
 		    System.out.println("Vendor Error Code: " + e.getErrorCode());
 			
 		}
-		sessionListModel.setSessionList(sessionList);
+		
+		sessionListModel.setSessiondetailList(sessiondetailList);
+		sessionListModel.setMembernameList(membernameList);
+		sessionListModel.setMemberidList(memberidList);
 		return sessionListModel;
 		
 	}

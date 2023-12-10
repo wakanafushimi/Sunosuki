@@ -59,7 +59,7 @@
 			<ul class="peerstop list-group">
 			
 			<c:forEach var="peer" items="${peers}">
-				<li class="list-group-item peer bg-light mt-3">
+				<li class="list-group-item peer bg-light mt-3 row">
 				<div class="row justify-content-center openmodal"><!-- card本体 -->
 					<div class="col-5 col-lg-3"><!-- 左エリア -->
 						<div class="m-2 imgcontainerPeers">
@@ -110,11 +110,17 @@
 						</div><!-- 練習中技 -->
 					</div><!-- 右エリア -->
 				</div><!-- card本体 -->
-				
-				
-				<!-------------------- modal -------------------->
-				<div class="modal">
-					<div class="modal-content col-8">
+				</li>
+			</c:forEach>
+			</ul>
+		</div><!-- col-lg-6 -->
+	</div><!-- row -->
+</div>
+
+<!-------------------- modal -------------------->
+				<div class="row">
+				<div class="popup">
+					<div class="modal-content">
 						<div class="row justify-content-center">
     	
 							<div class="showtop col-lg-3 mb-3">	
@@ -250,13 +256,9 @@
 							</div><!-- col-lg-6 -->
 						</div><!-- row -->
 					</div><!-- modal-content -->
-				</div><!-- modal -->
-				</li>
-			</c:forEach>
-			</ul>
-		</div><!-- col-lg-6 -->
-	</div><!-- row -->
-</div>
+				</div><!-- popup -->
+				</div>
+				
 <jsp:include page="menu.jsp"/>
 
 </body>

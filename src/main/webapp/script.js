@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("DOMContentLoaded event fired");
 	
-		var modals=document.querySelectorAll(".modal");
+		var modals=document.querySelectorAll(".popup");
 		var openmodals=document.querySelectorAll(".openmodal");
 		for(let i=0;i<openmodals.length;i++){
 			openmodals[i].addEventListener('click',createModalHandler(i));

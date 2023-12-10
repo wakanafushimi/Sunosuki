@@ -55,7 +55,7 @@
 		<div class="col-lg-6 col-12 showbottom">
 			<ul class="list-group">
 			
-			<c:forEach var="sessiondetail" items="${sessionListModel.sessionList}">
+			<c:forEach var="sessiondetail" items="${sessionListModel.sessiondetailList}">
 				<li class="list-group-item bg-light mt-3">
 				<div class="row">
 					<div class="col-9">
@@ -89,7 +89,7 @@
 							<c:if test="${memberid==loginModel.id}">
 								<%--<%System.out.println("メンバーである"); --%>
 								<div class="col-2 center">
-									<a href="NotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="join">Joined</a>
+									<a href="NotjoinServlet?action=${sessiondetail[0]}&date=datenull" class="btn btn-success btn-sm">Joined</a>
 								</div>
 								<%ismember=true; %>
 								<%pageContext.setAttribute("ismember",ismember); %>
@@ -100,7 +100,7 @@
 						<%--<c:out value="${ismember}"/> --%>
 						<%--<%System.out.println("メンバーではない"); --%>
 							<div class="col-2 center">
-								<a href="JoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
+								<a href="JoinServlet?action=${sessiondetail[0]}&date=datenull" class="btn btn-primary btn-sm">Join</a>
 							</div>
 						</c:if>
 					</c:if>

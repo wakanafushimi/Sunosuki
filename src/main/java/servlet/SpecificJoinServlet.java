@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ForSessionDAO;
-import model.ForSessionModel;
+import dao.JoinDAO;
+import model.LoginModel;
 
 /**
- * Servlet implementation class ForSessionServlet
+ * Servlet implementation class SpacificJoinServlet
  */
-@WebServlet("/ForSessionServlet")
-public class ForSessionServlet extends HttpServlet {
+@WebServlet("/SpecificJoinServlet")
+public class SpecificJoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ForSessionServlet() {
+    public SpecificJoinServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,28 +33,14 @@ public class ForSessionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-			
-			String date=null;
-			HttpSession session = request.getSession();
-			if(request.getParameter("date")!=null && request.getParameter("date").length()!=0) {
-				date=request.getParameter("date");
-				session.setAttribute("date",date);
-				
-			}else {
-				date=(String)session.getAttribute("date");
-			}
-			
-			ForSessionModel forSessionModel=new ForSessionModel();
-			
-			forSessionModel.setDate(date);
-			ForSessionDAO forSessionDAO=new ForSessionDAO();
-			forSessionModel=forSessionDAO.getSessionList(forSessionModel);
-						
-			session.setAttribute("forSessionModel",forSessionModel);
-			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("specificsession.jsp");
-			dispatcher.forward(request, response);
-			
+		String sessionId=request.getParameter("action");
+		JoinDAO joinDAO=new JoinDAO();
+		HttpSession session = request.getSession();
+		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");
+		joinDAO.setMember(sessionId,loginModel);
+		
+		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
+		dispatcher.forward(request, response);	
 	}
 
 	/**

@@ -40,7 +40,20 @@ public class SessionListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("sessionListModel",sessionListModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("lookforsession.jsp");
+		//lookforsession.jspかspecificsession.jspかの分岐
+		String forward=null;
+		String date=request.getParameter("date");
+		if(date==null) {
+			date=(String)session.getAttribute("date");
+		}
+		
+		if(date==null || date.equals("datenull")) {
+			forward="lookforsession.jsp";
+		}else{
+			forward="ForSessionServlet";
+		}
+		
+		RequestDispatcher dispatcher=request.getRequestDispatcher(forward);
 		dispatcher.forward(request, response);
 	}
 

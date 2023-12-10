@@ -40,7 +40,8 @@ public class NotjoinServlet extends HttpServlet {
 		notjoinDAO.deleteMember(sessionId,loginModel);
 		
 		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
-		dispatcher.forward(request, response);		}
+		dispatcher.forward(request, response);		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

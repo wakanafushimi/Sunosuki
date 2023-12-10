@@ -13,7 +13,24 @@
 <link rel="stylesheet" href="style01.css">
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="WEB-INF/top.jsp">Sunosuki</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link headermenu text-black-50" href="SessionListServlet?date=datenull">Look For Sessions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link headermenu" href="PeersServlet">Look For Peers</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <div class="container">
 		
@@ -21,8 +38,11 @@
 		<div class="col-lg-6 col-12 showbottom showtop">
 			<ul class="list-group">
 			
-			<c:forEach var="specificItem" items="${sessionArray}">
-			<c:forEach var="sessiondetail" items="${sessionListModel.sessionList}">
+			<% int count=0;
+				pageContext.setAttribute("count",count);%>
+			
+			<c:forEach var="specificItem" items="${forSessionModel.spesessionidList}">
+			<c:forEach var="sessiondetail" items="${sessionListModel.sessiondetailList}">
 			<c:if test="${specificItem==sessiondetail[0]}">
 				<li class="list-group-item bg-light mt-3">
 				<div class="row">
@@ -35,22 +55,23 @@
 						<div class="row">
 							<div><i class="fa-regular fa-message"></i><c:out value="${sessiondetail[3]}"/></div>
 						</div>
-					<div class="row">
-						<div class="col-lg-5"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
-						<div class="col-lg-2 col-5"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
-						<div class="col-lg-2 col-5"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
-					</div>
+						<div class="row">
+							<div class="col-lg-5 semi"><span class="small">作成者：</span><c:out value="${sessiondetail[4]}"/></div>
+							<div class="col-lg-2 col-4 mini"><i class="fa-solid fa-user"></i><c:out value="${sessiondetail[5]}"/></div>
+							<div class="col-lg-2 col-4 mini"><i class="fa-solid fa-car"></i><c:out value="${sessiondetail[6]}"/></div>
+						</div>
 					</div>
 					
 					<c:if test="${loginModel.id!= sessiondetail[7]}">
-					<% 
+					<%
 						boolean ismember=false; 
 						pageContext.setAttribute("ismember",ismember);
 					%>
-						<c:forEach var="memberid" items="${sessionListModel.memberidList.get(sessiondetail[0]-1)}">
+										
+						<c:forEach var="memberid" items="${forSessionModel.spememberList.get(count)}">
 							<c:if test="${memberid==loginModel.id}">
 								<div class="col-2 center">
-									<a href="NotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="join">Joined</a>
+									<a href="SpecificNotjoinServlet?action=${sessiondetail[0]}" class="btn btn-success btn-sm" id="joined">Joined</a>
 								</div>
 								<%ismember=true; %>
 								<%pageContext.setAttribute("ismember",ismember); %>
@@ -59,12 +80,14 @@
 						
 						<c:if test="${ismember!=true}">
 							<div class="col-2 center">
-								<a href="JoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
+								<a href="SpecificJoinServlet?action=${sessiondetail[0]}" class="btn btn-primary btn-sm" id="join">Join</a>
 							</div>
 						</c:if>
 					</c:if>
 				</div>
 				</li>
+				
+			<%count=count+1; %>
 			</c:if>
 			</c:forEach>
 			</c:forEach>

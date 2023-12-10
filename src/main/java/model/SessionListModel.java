@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SessionListModel {
 	String[] sessiondetail=new String[8];
-	List<String[]> sessionList=new ArrayList<>();
+	List<String[]> sessiondetailList=new ArrayList<>();
 	List<List<String>> memberidList=new ArrayList<>();
 	List<List<String>> membernameList=new ArrayList<>();
 	
@@ -17,17 +17,17 @@ public class SessionListModel {
 		this.sessiondetail = sessiondetail;
 	}
 	
-	public List<String[]> getSessionList() {
-		return sessionList;
+	public List<String[]> getSessiondetailList() {
+		return sessiondetailList;
 	}
-	public void setSessionList(List<String[]> sessionList) {
-		this.sessionList = sessionList;
+	public void setSessiondetailList(List<String[]> sessiondetailList) {
+		this.sessiondetailList = sessiondetailList;
 	}
 	
 	public List<List<String>> getMemberidList() {
 		return memberidList;
 	}
-	public void setMemberList(List<List<String>> memberidList) {
+	public void setMemberidList(List<List<String>> memberidList) {
 		this.memberidList = memberidList;
 	}
 	
