@@ -7,7 +7,7 @@
     <a class="nav-link" href="TrickServlet"><i class="fa-solid fa-user"></i></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#"><i class="fa-regular fa-calendar-days"></i></a>
+    <a class="nav-link" href="ScheduleServlet"><i class="fa-regular fa-calendar-days"></i></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="createsession.jsp"><i class="fa-solid fa-pen-to-square"></i></a>

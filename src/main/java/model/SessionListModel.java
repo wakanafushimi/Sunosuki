@@ -8,7 +8,6 @@ public class SessionListModel {
 	List<String[]> sessiondetailList=new ArrayList<>();
 	List<List<String>> memberidList=new ArrayList<>();
 	List<List<String>> membernameList=new ArrayList<>();
-	
 
 	public String[] getSessiondetail() {
 		return sessiondetail;

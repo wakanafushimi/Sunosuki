@@ -10,20 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.JoinDAO;
+import dao.ScheduleDAO;
+import dao.SessionListDAO;
 import model.LoginModel;
+import model.ScheduleModel;
+import model.SessionListModel;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class ScheduleServlet
  */
-@WebServlet("/JoinServlet")
-public class JoinServlet extends HttpServlet {
+@WebServlet("/ScheduleServlet")
+public class ScheduleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinServlet() {
+    public ScheduleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,14 +36,21 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sessionId=request.getParameter("action");
-		JoinDAO joinDAO=new JoinDAO();
 		HttpSession session = request.getSession();
 		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");
-		joinDAO.setMember(sessionId,loginModel);
+		ScheduleModel scheduleModel=new ScheduleModel();
+		ScheduleDAO scheduleDAO=new ScheduleDAO();
+		scheduleModel=scheduleDAO.getYoursessionList(loginModel,scheduleModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
-		dispatcher.forward(request, response);	
+		SessionListModel sessionListModel=new SessionListModel();
+		SessionListDAO sessionListDAO =new SessionListDAO();
+		sessionListModel=sessionListDAO.setSession(sessionListModel);
+		
+		session.setAttribute("sessionListModel",sessionListModel);
+		session.setAttribute("scheduleModel",scheduleModel);
+		RequestDispatcher dispatcher=request.getRequestDispatcher("schedule.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**
@@ -48,7 +58,7 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }

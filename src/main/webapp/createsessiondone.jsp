@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="pagetitle">
+<div class="pagetitle showtop gapbottom">
 <h3 class="center">Done</h3>
 </div>
 <div class="center"><a href="SessionListServlet?date=datenull"><i class="fa-solid fa-arrow-left"></i>View all Sessions</a></div>

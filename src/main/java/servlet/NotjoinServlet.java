@@ -39,7 +39,17 @@ public class NotjoinServlet extends HttpServlet {
 		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");
 		notjoinDAO.deleteMember(sessionId,loginModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
+		String forward=null;
+		System.out.println(request.getParameter("action"));
+		System.out.println(request.getParameter("forward"));
+		
+		if(request.getParameter("forward")!=null && request.getParameter("forward").length()!=0) {
+			forward="ScheduleServlet";
+		}else {
+			forward="SessionListServlet";
+		}
+		
+		RequestDispatcher dispatcher=request.getRequestDispatcher(forward);
 		dispatcher.forward(request, response);		
 	}
 

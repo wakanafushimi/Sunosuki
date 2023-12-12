@@ -27,7 +27,7 @@
         <div class="container">
         <div class="row">
       
-            <form action="LoginServlet" method="post" class="col-12 col-lg-4 mx-auto p-4 index_buttons greybox showtoplogin">
+            <form action="LoginServlet" method="post" class="col-12 col-lg-4 mx-auto p-4 greybox showtoplogin">
          
                 <div class="buttons_item">
                         <label class="form-label">ID</label>

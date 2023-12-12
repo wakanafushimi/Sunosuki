@@ -8,22 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.JoinDAO;
-import model.LoginModel;
+import dao.DeletesessionDAO;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class DeletesessionServlet
  */
-@WebServlet("/JoinServlet")
-public class JoinServlet extends HttpServlet {
+@WebServlet("/DeletesessionServlet")
+public class DeletesessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinServlet() {
+    public DeletesessionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,14 +31,13 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sessionId=request.getParameter("action");
-		JoinDAO joinDAO=new JoinDAO();
-		HttpSession session = request.getSession();
-		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");
-		joinDAO.setMember(sessionId,loginModel);
+		String sessionId=(String)request.getAttribute("action");
+		DeletesessionDAO deletesessionDAO=new DeletesessionDAO();
+		deletesessionDAO.Deletesession(sessionId);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
-		dispatcher.forward(request, response);	
+		RequestDispatcher dispatcher=request.getRequestDispatcher("ScheduleServlet");
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**
@@ -48,7 +45,7 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }

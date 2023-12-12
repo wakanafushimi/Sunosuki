@@ -19,11 +19,11 @@
 <form action="ProfileServlet" method="post" enctype="multipart/form-data">
 <div class="container">
 
-<div class="pagetitle">
+<div class="pagetitle showtop gapbottom">
 <h3 class="center">Edit Your Profile</h3>
 </div>
 	<div class="row justify-content-center">
-    	<div class="showtop col-lg-3 mb-3">		
+    	<div class="col-lg-3 mb-3">		
     		<div class="p-3 bg-light imginput">
     			<div class="">
 					プロフィール画像<input type="file" name="img">
@@ -31,11 +31,11 @@
 			</div>
       	</div>
 
-      	<div class="col-lg-6 profiletop showbottom">
+      	<div class="col-lg-6 showbottom">
         	<div class="card mb-4">
           		<div class="card-body">
           
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">ユーザネーム</p>
               			</div>
@@ -43,9 +43,8 @@
                 			<p class="text-muted"><input type="text" name="username" placeholder="${newprofileModel.username}" class="form-control"></p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">都道府県</p>
               			</div>
@@ -104,9 +103,8 @@
 								</select></p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">車の有無</p>
               			</div>
@@ -116,9 +114,8 @@
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             		
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">滑りのスタイル</p>
               			</div>
@@ -128,9 +125,8 @@
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             		
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">ギア</p>
               			</div>
@@ -140,9 +136,8 @@
                             </p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             
-            		<div class="row mt-2">
+            		<div class="row mt-2 underline">
               			<div class="col-4">
                 			<p class="mini">メッセージ</p>
               			</div>
@@ -152,7 +147,6 @@
                 			</p>
               			</div>
             		</div><!-- row -->
-            		<hr class="peerhr">
             		
             		<div class="center"> 
             			<input type="submit" class="btn-primary btn btn-sm mt-2" value="更新">
