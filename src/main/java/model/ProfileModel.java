@@ -8,6 +8,8 @@ public class ProfileModel {
 	private String style=null;
 	private String geer=null;
 	private String selfintro;
+	private String insta=null;
+	private String x=null;
 	
 	
 	public void setImg(String img) {
@@ -59,6 +61,16 @@ public class ProfileModel {
 	public String getGeer() {
 		return geer;
 	}
-	
-	
+	public String getInsta() {
+		return insta;
+	}
+	public void setInsta(String insta) {
+		this.insta = insta;
+	}
+	public String getX() {
+		return x;
+	}
+	public void setX(String x) {
+		this.x = x;
+	}
 }

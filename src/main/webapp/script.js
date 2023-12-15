@@ -1,30 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
-	console.log("DOMContentLoaded event fired");
 	
+		//peersページ
 		//idをふる
-		var modals=document.querySelectorAll(".popup");
 		var openmodals=document.querySelectorAll(".openmodal");
+		var popups=document.querySelectorAll(".popup");
+		var cancels=document.querySelectorAll(".cancel");
+		
+		//クリックしたらopen
 		for(let i=0;i<openmodals.length;i++){
 			openmodals[i].addEventListener('click',createModalHandler(i));
 			
 		}
-		
-		
-		//クリックしたらopen
 		function createModalHandler(index){
 			console.log("Clicked openmodal " + index);
 			return function(){
-				modals[index].style.display='block';
+				popups[index].style.display='block';
 			};
 		}
 		
 		//クリックしたらしまう
-		for(var i=0; i<modals.length;i++){
-			modals[i].addEventListener('click',function(){
-				this.style.display='none';
-			});
+		for(let i=0;i<cancels.length;i++){
+			cancels[i].addEventListener('click',hidePopups(i));
 		}
-	
-	
-
+		function hidePopups(index){
+			return function(){
+				popups[index].style.display='none';
+			}
+		}
+		
+		
+		//sessionページ
+		var openmemberdetails=document.querySelectorAll(".openmemberdetail");
+		var memberdetailpopups=document.querySelectorAll(".memberdetailpopup");
+		var cancelmemberdetails=document.querySelectorAll(".cancelmemberdetail");
+		var memberdetaillists=document.querySelectorAll(".memberdetaillist");
+		
+		//クリックしたらopen
+		for(let i=0;i<openmemberdetails.length;i++){
+			openmemberdetails[i].addEventListener('click',openMemberdetail(i));
+			
+		}
+		function openMemberdetail(index){
+			return function(){
+				memberdetailpopups[index].style.display='block';
+				
+			};
+		}
+		
+		//クリックしたらしまう
+		for(let i=0;i<cancelmemberdetails.length;i++){
+			cancelmemberdetails[i].addEventListener('click',hideMemberpopups(i));
+		}
+		function hideMemberpopups(index){
+			return function(){
+				memberdetailpopups[index].style.display='none';
+			}
+		}
+		
 });

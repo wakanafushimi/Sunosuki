@@ -33,13 +33,14 @@ public class SessionListDAO {
 	    }
 		
 		List<String[]> sessiondetailList=sessionListModel.getSessiondetailList();
-		List<List<String>> membernameList=sessionListModel.getMembernameList();
 		List<List<String>> memberidList=sessionListModel.getMemberidList();
+		List<List<String[]>> memberdetailListList=sessionListModel.getMemberdetailListList();
 		String userid=null;
+		String sessionid=null;
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 	        conn.setAutoCommit(true);
-        	String sql = "select * from session;";
+        	String sql = "select * from session order by date;";
         	PreparedStatement stmt = conn.prepareStatement(sql);
         	ResultSet rs=stmt.executeQuery();
         	
@@ -48,6 +49,7 @@ public class SessionListDAO {
         		String[] sessiondetail=new String[8];
         		
         		sessiondetail[0]=rs.getString("sessionId");
+        		sessionid=sessiondetail[0];
         		sessiondetail[1]=rs.getString("date");
         		sessiondetail[2]=rs.getString("location");
         		sessiondetail[3]=rs.getString("message");
@@ -79,8 +81,12 @@ public class SessionListDAO {
             	PreparedStatement stmt4 = conn.prepareStatement(sql4);
             	stmt4.setString(1,sessiondetail[0]);
             	ResultSet rs4=stmt4.executeQuery();
+            	
             	List<String> memberid=new ArrayList<>();
-            	List<String> membername=new ArrayList<>();
+            	memberid.add(sessionid);
+            	
+            	List<String[]> memberdetailList=new ArrayList<>();
+            	
             	int cars=0;
             	String carsStr=null;
             	while(rs4.next()){
@@ -88,15 +94,6 @@ public class SessionListDAO {
             		//メンバーのidをarraylistに格納
             		memberid.add(rs4.getString("memberId"));
             		
-            		//メンバーのusernameを取得しarraylistに格納
-            		String sql5="select username from userdetail where id=?;";
-            		PreparedStatement stmt5 = conn.prepareStatement(sql5);
-                	stmt5.setString(1,rs4.getString("memberId"));
-                	ResultSet rs5=stmt5.executeQuery();
-                	while(rs5.next()) {
-                		membername.add(rs5.getString("username"));
-                	}
-                	
                 	//メンバーの車の台数を取得
                 	String sql6="select count(*) from userdetail where id=? and car='ari';";
                 	PreparedStatement stmt6 = conn.prepareStatement(sql6);
@@ -114,14 +111,46 @@ public class SessionListDAO {
                 	}
 //                	System.out.println(carsStr);	
                 	sessiondetail[6]=carsStr;
+                	
+                	//memberdetail情報を取得してListに格納
+                	String sql7="select * from userdetail where id = ?;";
+                	PreparedStatement stmt7=conn.prepareStatement(sql7);
+                	stmt7.setString(1, rs4.getString("memberId"));
+                	ResultSet rs7=stmt7.executeQuery();
+                	while(rs7.next()) {
+                		String[] memberdetail=new String[11];
+        		        int columnCount=rs7.getMetaData().getColumnCount();	
+        		        memberdetail[0]=sessionid;
+        		        for(int i=1;i<=columnCount;i++) {
+        		        	memberdetail[i]=rs7.getString(i);
+        		        }
+        		        
+        		        memberdetailList.add(memberdetail);
+                	}
             	}
             	
             	//主催者useridをsessiondetail[7]に格納
             	sessiondetail[7]=userid;
             	
         		sessiondetailList.add(sessiondetail);
-        		membernameList.add(membername);
         		memberidList.add(memberid);
+        		memberdetailListList.add(memberdetailList);
+        		
+        		
+        		//チェック用
+//        		System.out.println("check");
+//        		for (List<String[]> innerList : memberdetailListList) {
+//        			System.out.println("セッション");
+//        		    for (String[] array : innerList) {
+//        		        for (String element : array) {
+//        		            System.out.print(element + " ");
+//        		        }
+//        		        System.out.println();  // 改行
+//        		    }
+//        		    System.out.println();  // 改行
+//        		}
+        		
+        		
         		
         	}
         	
@@ -135,8 +164,8 @@ public class SessionListDAO {
 		}
 		
 		sessionListModel.setSessiondetailList(sessiondetailList);
-		sessionListModel.setMembernameList(membernameList);
 		sessionListModel.setMemberidList(memberidList);
+		sessionListModel.setMemberdetailListList(memberdetailListList);
 		return sessionListModel;
 		
 	}

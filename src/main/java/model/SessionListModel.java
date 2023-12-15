@@ -7,7 +7,7 @@ public class SessionListModel {
 	String[] sessiondetail=new String[8];
 	List<String[]> sessiondetailList=new ArrayList<>();
 	List<List<String>> memberidList=new ArrayList<>();
-	List<List<String>> membernameList=new ArrayList<>();
+	List<List<String[]>> memberdetailListList=new ArrayList<>();
 
 	public String[] getSessiondetail() {
 		return sessiondetail;
@@ -31,10 +31,10 @@ public class SessionListModel {
 	}
 	
 	
-	public List<List<String>> getMembernameList() {
-		return membernameList;
+	public List<List<String[]>> getMemberdetailListList() {
+		return memberdetailListList;
 	}
-	public void setMembernameList(List<List<String>> membernameList) {
-		this.membernameList = membernameList;
+	public void setMemberdetailListList(List<List<String[]>> memberdetailListList) {
+		this.memberdetailListList = memberdetailListList;
 	}
 }

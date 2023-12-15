@@ -46,22 +46,6 @@ public class ForSessionDAO {
 //	        System.out.println(sessionList.size());	//チェック用
 	        
 	        
-	        //わざわざListを配列にしてる
-//	        String[] sessionArray=new String[sessionList.size()];
-//	        if(sessionList!=null) {
-////		        System.out.println(sessionArray.length); //チェック用
-//		        
-//		        int i=0;
-//		        for(String values:sessionList) {
-//		        	sessionArray[i]=values;
-//		        	System.out.println(sessionArray[i]);	
-//		        	i=i+1;
-//		        }
-//		        
-//		        forSessionModel.setSessionArray(sessionArray);
-//	        }
-	        
-	        
 	        //合致したsessionのメンバーをArrayListに入れる
 	        
 	        List<List<String>> spememberList=forSessionModel.getSpememberList();
@@ -73,6 +57,7 @@ public class ForSessionDAO {
 	        	ResultSet rs2=stmt2.executeQuery();
 	        	
 	        	List<String> spemember=new ArrayList<>();
+	        	spemember.add(spesessionidList.get(i));
 	        	
 	        	while(rs2.next()) {
 		        	spemember.add(rs2.getString("memberId"));

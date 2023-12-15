@@ -36,11 +36,10 @@ public class ProfileDAO {
  	        	conn.commit();
  	        	
 // 	        	System.out.println("userdetailにid登録済みか調べたOK");
- 	        	
 	        	
  	        	//id未登録だったら、idから全てinsert
  	        	if(!rs.next()) { 	 	        	
- 	        		String sqlIn = "insert into userdetail values(?,?,?,?,?,?,?,?);";
+ 	        		String sqlIn = "insert into userdetail values(?,?,?,?,?,?,?,?,?,?);";
 // 	        		System.out.println("id未登録として分岐");
  	        		try(PreparedStatement stmtIn = conn.prepareStatement(sqlIn)){
  	        		stmtIn.setString(1, loginModel.getId());
@@ -48,9 +47,11 @@ public class ProfileDAO {
 	        		stmtIn.setString(3, profileModel.getUsername());
 	        		stmtIn.setString(4, profileModel.getPref());
 	        		stmtIn.setString(5, profileModel.getCar());
-	        		stmtIn.setString(6, profileModel.getSelfintro());
-	        		stmtIn.setString(7, profileModel.getStyle());
-	        		stmtIn.setString(8, profileModel.getGeer());
+	        		stmtIn.setString(6, profileModel.getStyle());
+	        		stmtIn.setString(7, profileModel.getGeer());
+	        		stmtIn.setString(8, profileModel.getSelfintro());
+	        		stmtIn.setString(9, profileModel.getInsta());
+	        		stmtIn.setString(10, profileModel.getX());
 //	        		System.out.println("id未登録ケースsetDetail成功");
 	        		stmtIn.executeUpdate();
 	        		conn.commit();
@@ -181,6 +182,34 @@ public class ProfileDAO {
 // 	 	        		System.out.println("selfintroのinputはnullとして分岐");
  	 	        	}
  	        		
+ 	        		if(profileModel.getInsta()!=null) {
+ 		        		String sqlInsta=" UPDATE userdetail SET insta = ? WHERE id = ?;";
+ 		        		try(PreparedStatement stmtInsta = conn.prepareStatement(sqlInsta)){
+ 		        		stmtInsta.setString(1, profileModel.getInsta());
+ 		        		stmtInsta.setString(2, loginModel.getId());
+ 		        		stmtInsta.executeUpdate(); 
+ 		        		conn.commit();
+ 		        		}catch(SQLException e) {
+ 		        			e.printStackTrace();
+ 		        			conn.rollback();
+ 	 	        			System.out.println(e.getMessage());
+ 		        		}
+ 	 	        	}
+ 	        		
+ 	        		if(profileModel.getX()!=null) {
+ 		        		String sqlX=" UPDATE userdetail SET x = ? WHERE id = ?;";
+ 		        		try(PreparedStatement stmtX = conn.prepareStatement(sqlX)){
+ 		        		stmtX.setString(1, profileModel.getX());
+ 		        		stmtX.setString(2, loginModel.getId());
+ 		        		stmtX.executeUpdate(); 
+ 		        		conn.commit();
+ 		        		}catch(SQLException e) {
+ 		        			e.printStackTrace();
+ 		        			conn.rollback();
+ 	 	        			System.out.println(e.getMessage());
+ 		        		}
+ 	 	        	}
+ 	        		
 // 	        		System.out.println("id登録済みケースsetDetail終了");
 	        			
 	        	}	        		        	
@@ -235,6 +264,13 @@ public class ProfileDAO {
 	        
 	        String selfintro=rs.getString("selfintro");
 	        profileModel.setSelfintro(selfintro); 
+	        
+	        String insta=rs.getString("insta");
+	        profileModel.setInsta(insta); 
+	        
+	        String x=rs.getString("x");
+	        profileModel.setX(x); 
+	        
 	
 //	        System.out.println("getDetail成功");
 	        }

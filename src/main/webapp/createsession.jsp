@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>sunosuki</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sunosuki</title>
 <script src="https://kit.fontawesome.com/5235b688ad.js"
 	crossorigin="anonymous"></script>
 <link

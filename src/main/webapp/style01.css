@@ -2,11 +2,11 @@
 
 body::before{
     content:"";
-    display:block;
+    display:block !important;
     top:0;
     left:0;
     z-index:-1;
-    position:fixed;
+    position:fixed !important;
     background-image:url(images/IMG_0961.JPG);
     background-repeat:no-repeat;
     background-position:50% 100%;
@@ -79,6 +79,12 @@ img{
 	padding:0;
 	
 }
+.imgcontainerSession{
+	width:35px;
+	height:35px;
+	padding:0;
+	
+}
 /* ---------------------------------- */
 .showtop{
 	margin-top:85px !important;
@@ -112,10 +118,6 @@ img{
 	padding:4px !important;
 }
 
-/*.peer{*/
-/*	border-radius:20px !important;*/
-/*}*/
-
 .calender{
 	font-size:20px !important;
 	color:#28a745;
@@ -124,6 +126,7 @@ img{
 .peerslist{
 	border-radius:5px !important;
 }
+
 
 .semi{
 	font-size:14px;
@@ -140,10 +143,12 @@ img{
 }
 .popup{
 	display:none;
+	width:100%;
+	position:relative;
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33,37,41,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(33,37,41,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .underline{
 	border-bottom:1px solid #ccc;
@@ -153,10 +158,45 @@ img{
 	padding-bottom:2px !important;
 	border-bottom:2px solid #ccc;
 }
-/*.clickclose{*/
-/*	display:none;*/
-/*}*/
 
+.cancel,.cancelmemberdetail{
+	position:absolute;
+	top:3px;
+	right:3px;
+}
+.cancelsession{
+	position:absolute;
+	top:3px;
+	right:-12px;
+}
+.sessionmessage{
+	border-radius:5px;
+	border:2px solid #e2e5ec;
+}
+.memberdetailpopup{
+	display:none;
+	background:#fff;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:999;
+	margin-left:0;
+}
+.memberlist{
+	list-style:none;
+	padding-left:0;
+}
+.sessionitems{
+	z-index:0;
+}
+.viewpeerssession{
+	margin-left:160px;
+}
+@media(min-width:960px){
+	.viewpeerssession{
+	margin-left:300px;
+}
+}
 
 /*@media(min-width:960px){*/
 	

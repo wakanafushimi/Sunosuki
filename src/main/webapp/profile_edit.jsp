@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sunosuki</title>
 <script src="https://kit.fontawesome.com/5235b688ad.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -133,6 +134,28 @@
               			<div class="col-8">
                 			<p class="text-muted">
                 				<textarea name="geer" class="form-control" placeholder="${newprofileModel.geer}"></textarea>
+                            </p>
+              			</div>
+            		</div><!-- row -->
+            		
+            		<div class="row mt-2 underline">
+              			<div class="col-4">
+                			<p class="mini">Instagram アカウント</p>
+              			</div>
+              			<div class="col-8">
+                			<p class="text-muted">
+                				<input type="text" name="insta" class="form-control" placeholder="${newprofileModel.insta}">
+                            </p>
+              			</div>
+            		</div><!-- row -->
+            		
+            		<div class="row mt-2 underline">
+              			<div class="col-4">
+                			<p class="mini">X アカウント</p>
+              			</div>
+              			<div class="col-8">
+                			<p class="text-muted">
+                				<input type="text" name="x" class="form-control" placeholder="${newprofileModel.x}">
                             </p>
               			</div>
             		</div><!-- row -->

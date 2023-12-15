@@ -87,6 +87,24 @@
 								<p class="text-muted">${newprofileModel.geer}</p>
 							</div>
 						</div>
+						
+						<div class="row mt-2 underline">
+							<div class="col-5">
+								<p class="mini">Instagram アカウント</p>
+							</div>
+							<div class="col-7">
+								<p class="semi"><a href="${newprofileModel.insta}" target="_blank" class="text-muted">${newprofileModel.insta}</a></p>
+							</div>
+						</div>
+						
+						<div class="row mt-2 underline">
+							<div class="col-5">
+								<p class="mini">X アカウント</p>
+							</div>
+							<div class="col-7">
+								<p class="semi"><a href="${newprofileModel.x}" target="_blank" class="text-muted">${newprofileModel.x}</a></p>
+							</div>
+						</div>
 
 						<div class="row mt-2 underline">
 							<div class="col-5">

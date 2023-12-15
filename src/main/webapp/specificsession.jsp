@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>sunosuki</title>
 <script src="https://kit.fontawesome.com/5235b688ad.js"
 	crossorigin="anonymous"></script>
@@ -20,6 +21,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
+<script src="script.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
@@ -33,11 +35,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a
-						class="nav-link headermenu semi"
+					<li class="nav-item"><a class="nav-link headermenu semi"
 						href="SessionListServlet?date=datenull">Look For Sessions</a></li>
-					<li class="nav-item"><a class="nav-link headermenu menuhere semi"
-						href="PeersServlet">Look For Peers</a></li>
+					<li class="nav-item"><a
+						class="nav-link headermenu menuhere semi" href="PeersServlet">Look
+							For Peers</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,12 +58,6 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-12 showbottom">
 				<ul class="list-group">
-
-					<%
-					int count = 0;
-					pageContext.setAttribute("count", count);
-					%>
-
 					<c:forEach var="specificItem"
 						items="${forSessionModel.spesessionidList}">
 						<c:forEach var="sessiondetail"
@@ -84,7 +80,7 @@
 													<span class="small">作成者：</span>
 													<c:out value="${sessiondetail[4]}" />
 												</div>
-												<div class="col-lg-2 col-4 mini">
+												<div class="col-lg-2 col-4 mini openmodal">
 													<i class="fa-solid fa-user"></i>
 													<c:out value="${sessiondetail[5]}" />
 												</div>
@@ -101,19 +97,23 @@
 											pageContext.setAttribute("ismember", ismember);
 											%>
 
-											<c:forEach var="memberid"
-												items="${forSessionModel.spememberList.get(count)}">
-												<c:if test="${memberid==loginModel.id}">
-													<div class="col-2 center">
-														<a href="NotjoinServlet?action=${sessiondetail[0]}"
-															class="btn btn-success btn-sm" id="joined">Joined</a>
-													</div>
-													<%
-													ismember = true;
-													%>
-													<%
-													pageContext.setAttribute("ismember", ismember);
-													%>
+											<c:forEach var="memberids"
+												items="${forSessionModel.spememberList}">
+												<c:if test="${memberids.get(0)==sessiondetail[0]}">
+													<c:forEach var="memberid" items="${memberids}">
+														<c:if test="${memberid==loginModel.id}">
+															<div class="col-2 center">
+																<a href="NotjoinServlet?action=${sessiondetail[0]}"
+																	class="btn btn-success btn-sm" id="joined">Joined</a>
+															</div>
+															<%
+															ismember = true;
+															%>
+															<%
+															pageContext.setAttribute("ismember", ismember);
+															%>
+														</c:if>
+													</c:forEach>
 												</c:if>
 											</c:forEach>
 
@@ -125,9 +125,168 @@
 											</c:if>
 										</c:if>
 									</div>
+
+									<div class="popup mt-2">
+										<!-- modal -->
+										<!-- listにlist-group,list-group-itemをつけるとimgが横並びにならないから注意 -->
+										<ul class="d-flex memberlist">
+											<c:forEach var="memberdetailList"
+												items="${sessionListModel.memberdetailListList}">
+												<c:forEach var="memberdetail" items="${memberdetailList}">
+													<c:if test="${memberdetail[0]==sessiondetail[0]}">
+														<li class="row">
+															<div class="openmemberdetail">
+																<div class="imgcontainerSession img-fluid">
+																	<img src="uploads/${memberdetail[2]}"
+																		class="rounded-circle" />
+																</div>
+															</div>
+
+
+															<div class="memberdetailpopup shadow-lg col-9">
+																<!-- peerdetailpopup -->
+																<div class="row d-flex my-1">
+																	<div class="">
+																		<div class="imgcontainerSession img-fluid">
+																			<img src="uploads/${memberdetail[2]}"
+																				class="rounded-circle" />
+																		</div>
+																	</div>
+																	<div class="">
+																		<c:out value="${memberdetail[3]}" />
+																	</div>
+																</div>
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">都道府県</p>
+																	</div>
+																	<div class="col-7">
+																		<p class="semi text-muted mt-2">${memberdetail[4]}</p>
+																	</div>
+																</div>
+
+
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">車の有無</p>
+																	</div>
+																	<div class="col-7">
+																		<p class="semi text-muted mt-2">${memberdetail[5]}</p>
+																	</div>
+																</div>
+
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">滑りのスタイル</p>
+																	</div>
+																	<div class="col-7">
+																		<p class="semi text-muted mt-2">${memberdetail[6]}</p>
+																	</div>
+																</div>
+
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">ギア</p>
+																	</div>
+																	<div class="col-7">
+																		<p class="semi text-muted mt-2">${memberdetail[7]}</p>
+																	</div>
+																</div>
+
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">SNS</p>
+																	</div>
+
+																	<div class="col-7">
+																		<p class="mini mt-2">
+																			<c:if test="${memberdetail[9]!=null}">
+																				<a href="${memberdetail[9]}" target="_blank"
+																					class="text-muted"><i
+																					class="fa-brands fa-instagram"></i></a>
+																			</c:if>
+																			<c:if test="${memberdetail[10]!=null}">
+																				<a href="${memberdetail[10]}" target="_blank"
+																					class="text-muted"><i
+																					class="fa-brands fa-x-twitter"></i></a>
+																			</c:if>
+																		</p>
+																	</div>
+																</div>
+
+																<div class="row underline">
+																	<div class="col-5">
+																		<p class="mini">メッセージ</p>
+																	</div>
+																	<div class="col-7">
+																		<p class="semi text-muted mt-2">${memberdetail[8]}</p>
+																	</div>
+																</div>
+
+																<c:forEach var="id" items="${existinguser}">
+																	<!--教えられる技 -->
+																	<c:if test="${memberdetail[1]==id}">
+																		<div class="row underline">
+																			<div class="col-5">
+																				<p class="mini">教えられる</p>
+																			</div>
+																			<div class="col-7">
+																				<c:forEach var="trick_aArray"
+																					items="${peersTrick_a}">
+																					<c:if test="${trick_aArray[0]==memberdetail[1]}">
+																						<div class="d-inline-block pe-2">
+																							<p class="text-muted semi mt-2">
+																								<c:out value="${trick_aArray[1]}" />
+																							</p>
+																						</div>
+																					</c:if>
+																				</c:forEach>
+																			</div>
+																		</div>
+																	</c:if>
+																</c:forEach>
+
+
+																<div class="row">
+																	<!-- 練習中技 -->
+																	<div class="col-5">
+																		<p class="mini">練習中</p>
+																	</div>
+																	<div class="col-7">
+																		<c:forEach var="trick_bArray" items="${peersTrick_b}">
+																			<c:if test="${trick_bArray[0]==memberdetail[1]}">
+																				<div class="d-inline-block pe-2">
+																					<p class="text-muted semi mt-2">
+																						<c:out value="${trick_bArray[1]}" />
+																					</p>
+																				</div>
+																			</c:if>
+																		</c:forEach>
+																	</div>
+																</div>
+																<!-- 練習中技 -->
+
+																<div class="cancelmemberdetail">
+																	<i class="fa-solid fa-xmark"></i>
+																</div>
+															</div>
+														</li>
+													</c:if>
+												</c:forEach>
+											</c:forEach>
+										</ul>
+										<div class="row">
+											<div class="sessionmessage mt-2 p-1">
+												<i class="fa-regular fa-message mini"></i>
+												<c:out value="${sessiondetail[3]}" />
+											</div>
+										</div>
+										<div class="cancel cancelsession">
+											<i class="fa-solid fa-chevron-up"></i>
+										</div>
+									</div>
 								</li>
 
-								<%count=count+1; %>
 							</c:if>
 						</c:forEach>
 					</c:forEach>

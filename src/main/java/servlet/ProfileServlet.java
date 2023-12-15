@@ -98,6 +98,12 @@ public class ProfileServlet extends HttpServlet {
 		selfintro=request.getParameter("selfintro");
 //		System.out.println("selfintro入力値:"+selfintro);
 		
+		String insta=null;
+		insta=request.getParameter("insta");
+		
+		String x=null;
+		x=request.getParameter("x");
+		
 		
 		//入力がnullだったときはgetDetailして↑に代入
 		ProfileModel profileModel=new ProfileModel();
@@ -127,6 +133,12 @@ public class ProfileServlet extends HttpServlet {
 		if(selfintro.length()==0) {
 			selfintro=profileModel.getSelfintro();
 		}
+		if(insta.length()==0) {
+			insta=profileModel.getInsta();
+		}
+		if(x.length()==0) {
+			x=profileModel.getX();
+		}
 				
 		//profileModelには入力値またはgetDetailが入ってるからそれをsetDetail
 		profileModel.setImg(img);
@@ -135,6 +147,8 @@ public class ProfileServlet extends HttpServlet {
 		profileModel.setCar(car);
 		profileModel.setStyle(style);
 		profileModel.setGeer(geer);
+		profileModel.setInsta(insta);
+		profileModel.setX(x);
 		profileModel.setSelfintro(selfintro);
 
 		profileDAO.setDetail(loginModel, profileModel);

@@ -53,6 +53,7 @@ public class ScheduleDAO {
 	        	ResultSet rs2=stmt2.executeQuery();
 	        	
 	        	List<String> yoursessionmember=new ArrayList<>();
+	        	yoursessionmember.add(yoursessionList.get(i));
 	        	
 	        	while(rs2.next()) {
 		        	yoursessionmember.add(rs2.getString("memberId"));
