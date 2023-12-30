@@ -25,6 +25,7 @@ public class SessionDAO {
 	        conn.setAutoCommit(true);
 	        
 	        //createsessionの入力値をsessionテーブルにinsert
+	        //このsqlで、dateがnullなら更新されない
         	String sql = "insert into session values (null,?,?,?,?);";
         	PreparedStatement stmt = conn.prepareStatement(sql);
 //        	System.out.println(sessionModel.getDate()+sessionModel.getLocation()+sessionModel.getMessage());

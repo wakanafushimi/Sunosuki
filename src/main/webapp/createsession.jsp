@@ -20,6 +20,8 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
+<script defer type="module" src="script.js"></script>
+
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -34,19 +36,14 @@
 						<label class="form-label">日付</label> <input type="date"
 							class="form-control" name="date"></input>
 					</div>
-					<div class="">
-						<label class="form-label">ゲレンデ</label> <select name="location"
-							class="form-control">
-							<option value="">スキー場を選択してください</option>
-							<option value="resort">resort</option>
-							<option value="菅平高原スノーリゾート">菅平高原スノーリゾート</option>
-							<option value="竜王スキーパーク">竜王スキーパーク</option>
-							<option value="戸狩温泉スキー場">戸狩温泉スキー場</option>
-							<option value="志賀高原スキー場">志賀高原スキー場</option>
-							<option value="白馬八方尾根スキー場">白馬八方尾根スキー場</option>
-						</select>
 
+					<%--以下js適応エリア --%>
+					<div id="gerendeselect">
+						<label class="form-label">ゲレンデ</label> <select
+							class="prefectures form-control"></select> <select
+							name="location" class="gerende form-control"></select>
 					</div>
+
 					<div class="">
 						<label class="form-label">メッセージ</label>
 						<textarea name="message" class="form-control"></textarea>
@@ -61,6 +58,12 @@
 	</div>
 
 	<jsp:include page="menu.jsp" />
+
+	<%--<script>
+	const gerendeselect=document.getElementById("gerendeselect")
+	gerendeselect.addEventListener("click",()=>{
+		alert("クリック")})
+</script>  --%>
 
 </body>
 </html>
