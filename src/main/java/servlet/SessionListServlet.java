@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,8 +52,7 @@ public class SessionListServlet extends HttpServlet {
 			forward="ForSessionServlet";
 		}
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher(forward);
-		dispatcher.forward(request, response);
+		response.sendRedirect(forward);
 	}
 
 	/**
