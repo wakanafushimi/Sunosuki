@@ -22,7 +22,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
-<script src="script.js"></script>
+<script defer type="module" src="script.js"></script>
 </head>
 <body>
 	<nav
@@ -67,7 +67,7 @@
 		</form>
 
 		<div class="row justify-content-center">
-			<div class="col-lg-6 col-12 showbottom sessionitems">
+			<div class="col-lg-6 col-12 sessionitems">
 				<ul class="list-group">
 
 					<c:forEach var="sessiondetail"

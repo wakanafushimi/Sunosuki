@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sunosuki</title>
 <script src="https://kit.fontawesome.com/5235b688ad.js"
 	crossorigin="anonymous"></script>
@@ -22,8 +22,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
+<script defer type="module" src="script.js"></script>
 <link rel="stylesheet" href="style01.css">
-<script src="script.js"></script>
 </head>
 
 <body>
@@ -94,7 +94,7 @@
 
 
 						<!-------------------- modal -------------------->
-						<li class="list-group-item popup peerslist peerpopup">
+						<li class="list-group-item popup peerslist pb-4">
 							<div class="peerslist">
 								<div class="row underline">
 									<div class="col-5">
@@ -204,8 +204,8 @@
 								<!-- 練習中技 -->
 								
 								<div class="row pt-2">
-									<div class="viewpeerssession semi">
-										<a href="peersschedule.jsp?id=${peer[0]}">View <c:out value="${peer[2]}"/>'s schedule <i class="fa-solid fa-arrow-right"></i></a>
+									<div class="semi">
+										<a href="PeersScheduleServlet?id=${peer[0]}&name=${peer[2]}" class="viewpeerssession">View <c:out value="${peer[2]}"/>'s schedule <i class="fa-solid fa-arrow-right"></i></a>
 									</div>
 									
 								</div>

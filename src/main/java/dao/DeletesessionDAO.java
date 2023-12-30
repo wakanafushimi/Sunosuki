@@ -10,7 +10,7 @@ public class DeletesessionDAO {
 	private final String DB_USER="root";
 	private final String DB_PASS="";
 
-	public void Deletesession(String sessionId) {
+	public void Deletesession(int sessionId) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -23,13 +23,13 @@ public class DeletesessionDAO {
 			//sessionテーブルからの削除
 			String sql = "delete from session where sessionId = ?;";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1,sessionId);
+			stmt.setInt(1,sessionId);
 			stmt.executeUpdate();
 
 			//sessionmemberテーブルからの削除
 			String sql1="delete from sessionmember where sessionId = ?;";
 			PreparedStatement stmt1 = conn.prepareStatement(sql1);
-			stmt1.setString(1,sessionId);
+			stmt1.setInt(1,sessionId);
 			stmt1.executeUpdate();
 
 		}catch(SQLException e) {

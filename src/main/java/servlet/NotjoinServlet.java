@@ -40,9 +40,6 @@ public class NotjoinServlet extends HttpServlet {
 		notjoinDAO.deleteMember(sessionId,loginModel);
 		
 		String forward=null;
-		System.out.println(request.getParameter("action"));
-		System.out.println(request.getParameter("forward"));
-		
 		if(request.getParameter("forward")!=null && request.getParameter("forward").length()!=0) {
 			forward="ScheduleServlet";
 		}else {

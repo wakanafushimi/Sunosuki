@@ -35,10 +35,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link headermenu semi"
+					<li class="nav-item"><a class="nav-link headermenu menuhere semi"
 						href="SessionListServlet?date=datenull">Look For Sessions</a></li>
 					<li class="nav-item"><a
-						class="nav-link headermenu menuhere semi" href="PeersServlet">Look
+						class="nav-link headermenu semi" href="PeersServlet">Look
 							For Peers</a></li>
 				</ul>
 			</div>

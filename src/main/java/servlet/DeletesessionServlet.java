@@ -31,7 +31,7 @@ public class DeletesessionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sessionId=(String)request.getAttribute("action");
+		int sessionId=Integer.parseInt(request.getParameter("action"));
 		DeletesessionDAO deletesessionDAO=new DeletesessionDAO();
 		deletesessionDAO.Deletesession(sessionId);
 		

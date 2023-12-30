@@ -2,11 +2,11 @@
 
 body::before{
     content:"";
-    display:block !important;
+    display:block;
     top:0;
     left:0;
     z-index:-1;
-    position:fixed !important;
+    position:fixed;
     background-image:url(images/IMG_0961.JPG);
     background-repeat:no-repeat;
     background-position:50% 100%;
@@ -45,9 +45,6 @@ a{
 	margin-top:30vh!important;
 	background-color:rgba(248, 249, 250,0.5);
 	border-radius:10px;
-}
-.footer{
-	padding-bottom:8px !important;
 }
 .greybox{
 	background-color:rgba(248, 249, 250,0.5);
@@ -188,15 +185,19 @@ img{
 }
 .sessionitems{
 	z-index:0;
+	margin-bottom:470px;
 }
 .viewpeerssession{
-	margin-left:160px;
+	position:absolute;
+	right:10px;
+	bottom:5px;
+	display:block;
 }
-@media(min-width:960px){
-	.viewpeerssession{
-	margin-left:300px;
-}
-}
+/*@media(min-width:960px){*/
+/*	.viewpeerssession{*/
+/*	margin-left:300px;*/
+/*	}*/
+/*}*/
 
 /*@media(min-width:960px){*/
 	
