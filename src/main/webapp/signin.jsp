@@ -25,12 +25,12 @@
 		</nav>
        
 <div class="pagetitle">
-<h3 class="center">Sign Up</h3>
+<h3 class="center showtopsignin">Sign Up</h3>
 </div>
         
         <div class="container">
         <div class="row">
-            <form action="LoginServlet" method="get" class="buttons col-12 col-lg-4 mx-auto p-4 greybox showtoplogin">
+            <form action="LoginServlet" method="get" class="buttons col-12 col-lg-4 mx-auto p-4 greybox">
 
                 <div class="buttons_item">
                     

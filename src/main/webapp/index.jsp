@@ -46,7 +46,7 @@
                         <button type="submit" class="btn btn-success">Log In</button>
                     </div>
                     <div class="register_item ms-3 mt-2">
-                        <a href="signin.jsp">Sign In</a>
+                        <a href="signin.jsp">Sign Up</a>
                     </div>
                 </div>
                 

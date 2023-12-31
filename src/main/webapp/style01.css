@@ -41,6 +41,9 @@ a{
 .showtoplogin{
 	margin-top:25vh;
 }
+.showtopsignin{
+	margin-top:20vh;
+}
 .topbutton{
 	margin-top:30vh!important;
 	background-color:rgba(248, 249, 250,0.5);
@@ -77,10 +80,14 @@ img{
 	
 }
 .imgcontainerSession{
+	width:20px;
+	height:20px;
+	padding:0;
+}
+.imgcontainerSessiondetail{
 	width:35px;
 	height:35px;
 	padding:0;
-	
 }
 /* ---------------------------------- */
 .showtop{

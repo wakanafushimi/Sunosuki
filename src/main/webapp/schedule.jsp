@@ -107,7 +107,7 @@
 																<!-- peerdetailpopup -->
 																<div class="row d-flex my-1">
 																	<div class="">
-																		<div class="imgcontainerSession img-fluid">
+																		<div class="imgcontainerSessiondetail img-fluid">
 																			<img src="uploads/${memberdetail[2]}"
 																				class="rounded-circle" />
 																		</div>
@@ -243,7 +243,7 @@
 														<div class="row">
 															<div class="col-9">
 																<textarea name="message"
-																	placeholder="${sessiondetail[3]}" class="form-control"></textarea>
+																	placeholder="${sessiondetail[3]}" class="form-control mini"></textarea>
 															</div>
 															<div class="col-2">
 																<button type="submit">

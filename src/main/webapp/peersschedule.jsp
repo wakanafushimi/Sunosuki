@@ -128,7 +128,7 @@
 																<!-- peerdetailpopup -->
 																<div class="row d-flex my-1">
 																	<div class="">
-																		<div class="imgcontainerSession img-fluid">
+																		<div class="imgcontainerSessiondetail img-fluid">
 																			<img src="uploads/${memberdetail[2]}"
 																				class="rounded-circle" />
 																		</div>

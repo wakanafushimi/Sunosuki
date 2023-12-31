@@ -166,7 +166,7 @@
 														<!-- peerdetailpopup -->
 														<div class="row d-flex my-1">
 															<div class="">
-																<div class="imgcontainerSession img-fluid">
+																<div class="imgcontainerSessiondetail img-fluid">
 																	<img src="uploads/${memberdetail[2]}"
 																		class="rounded-circle" />
 																</div>
@@ -296,7 +296,7 @@
 								<div class="row">
 									<div class="sessionmessage mt-2 p-1">
 										<i class="fa-regular fa-message mini"></i>
-										<c:out value="${sessiondetail[3]}" />
+										<p class="mini"><c:out value="${sessiondetail[3]}" /></p>
 									</div>
 								</div>
 								<div class="cancel cancelsession">

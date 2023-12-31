@@ -21,15 +21,16 @@
 		<c:choose>
 			<c:when test="${loginModel.registerFlag}">
 			<div class="pagetitle">
-        		<h2>登録完了</h2>
-        		<a href="top.jsp">次へ</a>
+        		<h2 class="center">登録完了</h2>
+        		<a href="top.jsp" class="center">次へ</a>
         		</div>
         	</c:when>
         	
         	<c:otherwise>
-        	<div class="pagetitle">
+        	<div class="pagetitle center">
         		<h2>登録失敗</h2>
-        		<a href="signin.jsp">戻る</a>
+        		<p class="center">ユーザIDの重複の可能性があります。</p>
+        		<a href="signin.jsp" class="center">戻る</a>
         		</div>
         	</c:otherwise>
         </c:choose>
