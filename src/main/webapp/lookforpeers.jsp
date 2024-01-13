@@ -74,7 +74,7 @@
 					<c:forEach var="peer" items="${peers}">
 						<li class="mt-2 list-group-item peerslist">
 							<div class="row openmodal">
-								<div class="col-5">
+								<div class="col-3">
 									<!-- 左エリア -->
 									<div class="imgcontainerPeers">
 										<img src="uploads/${peer[1]}" class="rounded-circle img-fluid">
@@ -139,7 +139,7 @@
 									</div>
 
 									<div class="col-7">
-										<p class="mini mt-2">
+										<p class="mt-2">
 										<c:if test="${peer[8]!=null}">
 											<a href="${peer[8]}" target="_blank"
 												class="text-muted"><i class="fa-brands fa-instagram"></i></a>

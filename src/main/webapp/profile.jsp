@@ -87,22 +87,28 @@
 								<p class="text-muted">${newprofileModel.geer}</p>
 							</div>
 						</div>
-						
+
 						<div class="row mt-2 underline">
 							<div class="col-5">
 								<p class="mini">Instagram アカウント</p>
 							</div>
 							<div class="col-7">
-								<p class="semi"><a href="${newprofileModel.insta}" target="_blank" class="text-muted">${newprofileModel.insta}</a></p>
+								<p class="semi">
+									<a href="${newprofileModel.insta}" target="_blank"
+										class="text-muted">${newprofileModel.insta}</a>
+								</p>
 							</div>
 						</div>
-						
+
 						<div class="row mt-2 underline">
 							<div class="col-5">
 								<p class="mini">X アカウント</p>
 							</div>
 							<div class="col-7">
-								<p class="semi"><a href="${newprofileModel.x}" target="_blank" class="text-muted">${newprofileModel.x}</a></p>
+								<p class="semi">
+									<a href="${newprofileModel.x}" target="_blank"
+										class="text-muted">${newprofileModel.x}</a>
+								</p>
 							</div>
 						</div>
 
@@ -194,11 +200,33 @@
 		</div>
 	</div>
 
+	<div class="fixed-bottom bg-light py-3 px-4 smallfooter">
+		<ul class="nav justify-content-around">
+			<li class="nav-item"><a class="nav-link menuhere"
+				href="TrickServlet"><i class="fa-solid fa-user"></i></a></li>
+			<li class="nav-item"><a class="nav-link" href="ScheduleServlet"><i
+					class="fa-regular fa-calendar-days"></i></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="createsession.jsp"><i class="fa-solid fa-pen-to-square"></i></a></li>
+			<li class="nav-item"><a class="nav-link" href="index.jsp"><i
+					class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+
+		</ul>
+	</div>
 
 
-
-	<jsp:include page="menu.jsp" />
-
+	<div class="fixed-bottom widefooter">
+		<ul class="nav bg-light justify-content-center widefooterchild">
+			<li class="nav-item px-3"><a class="nav-link menuhere"
+				href="TrickServlet">Profile</a></li>
+			<li class="nav-item px-3"><a class="nav-link"
+				href="ScheduleServlet">Schedule</a></li>
+			<li class="nav-item px-3"><a class="nav-link"
+				href="createsession.jsp">Create Session</a></li>
+			<li class="nav-item px-3"><a class="nav-link" href="index.jsp">Sign
+					out</a></li>
+		</ul>
+	</div>
 
 </body>
 </html>

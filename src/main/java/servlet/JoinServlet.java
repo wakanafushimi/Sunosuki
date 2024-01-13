@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,14 +32,28 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		String sessionId=request.getParameter("action");
 		JoinDAO joinDAO=new JoinDAO();
 		HttpSession session = request.getSession();
 		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");
 		joinDAO.setMember(sessionId,loginModel);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("SessionListServlet");
-		dispatcher.forward(request, response);	
+		//join後にpeersscheduleに遷移するためのforwardの値
+		String id=null;
+		String name=null;
+		String forward="SessionListServlet";
+		if(request.getParameter("id")!=null && request.getParameter("id").length()!=0) {
+			id=request.getParameter("id");
+			name=request.getParameter("name");
+			session.setAttribute("id",id);
+			session.setAttribute("name", name);
+			forward="PeersScheduleServlet";
+		}else if(request.getAttribute("id")!=null){
+			request.removeAttribute("id");
+		}
+		
+		response.sendRedirect(forward);
 	}
 
 	/**

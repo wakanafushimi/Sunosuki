@@ -35,11 +35,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link headermenu menuhere semi"
-						href="SessionListServlet?date=datenull">Look For Sessions</a></li>
 					<li class="nav-item"><a
-						class="nav-link headermenu semi" href="PeersServlet">Look
-							For Peers</a></li>
+						class="nav-link headermenu menuhere semi"
+						href="SessionListServlet?date=datenull">Look For Sessions</a></li>
+					<li class="nav-item"><a class="nav-link headermenu semi"
+						href="PeersServlet">Look For Peers</a></li>
 				</ul>
 			</div>
 		</div>
@@ -136,7 +136,7 @@
 													<c:if test="${memberdetail[0]==sessiondetail[0]}">
 														<li class="row">
 															<div class="openmemberdetail">
-																<div class="imgcontainerSession img-fluid">
+																<div class="imgcontainerSession img-fluid m-1">
 																	<img src="uploads/${memberdetail[2]}"
 																		class="rounded-circle" />
 																</div>
@@ -199,7 +199,7 @@
 																	</div>
 
 																	<div class="col-7">
-																		<p class="mini mt-2">
+																		<p class="mt-2">
 																			<c:if test="${memberdetail[9]!=null}">
 																				<a href="${memberdetail[9]}" target="_blank"
 																					class="text-muted"><i
@@ -276,9 +276,11 @@
 											</c:forEach>
 										</ul>
 										<div class="row">
-											<div class="sessionmessage mt-2 p-1">
+											<div class="sessionmessage mt-2">
 												<i class="fa-regular fa-message mini"></i>
-												<c:out value="${sessiondetail[3]}" />
+												<p class="mini">
+													<c:out value="${sessiondetail[3]}" />
+												</p>
 											</div>
 										</div>
 										<div class="cancel cancelsession">

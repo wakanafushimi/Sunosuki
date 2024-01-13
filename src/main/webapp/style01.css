@@ -206,7 +206,19 @@ img{
 /*	}*/
 /*}*/
 
-/*@media(min-width:960px){*/
-	
-/*}*/
+.widefooter{
+	display:flex;
+	display:none;
+}
+.widefooterchild{
+	padding:10px 0;
+}
+@media(min-width:960px){
+	.smallfooter{
+		display:none;
+	}
+	.widefooter{
+		display:block;
+	}
+}
 

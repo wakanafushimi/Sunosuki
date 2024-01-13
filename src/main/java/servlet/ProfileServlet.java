@@ -39,6 +39,7 @@ public class ProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		ProfileDAO profileDAO=new ProfileDAO();
 		HttpSession session = request.getSession();
 		LoginModel loginModel=(LoginModel)session.getAttribute("loginModel");

@@ -50,8 +50,8 @@
 	</nav>
 
 	<%
-	String id = (String) request.getParameter("id");
-	String name = (String) request.getParameter("name");
+	String id = (String) session.getAttribute("id");
+	String name = (String) session.getAttribute("name");
 	%>
 
 	<div class="container">
@@ -92,7 +92,7 @@
 											</div>
 											<div class="row">
 												<div class="col-lg-5 semi">
-													<span class="">作成者：</span>
+													<span class="mini">作成者：</span>
 													<c:out value="${sessiondetail[4]}" />
 												</div>
 												<div class="col-lg-2 col-4 mini openmodal">
@@ -104,7 +104,43 @@
 													<c:out value="${sessiondetail[6]}" />
 												</div>
 											</div>
+
+
 										</div>
+										<%-- 以下追加--%>
+										<c:if test="${loginModel.id!= sessiondetail[7]}">
+											<%
+												boolean ismember = false;
+												pageContext.setAttribute("ismember", ismember);
+												%>
+
+											<c:forEach var="memberids"
+												items="${sessionListModel.memberidList}">
+												<c:if test="${memberids.get(0)==sessiondetail[0]}">
+													<c:forEach var="memberid" items="${memberids}">
+														<c:if test="${memberid==loginModel.id}">
+															<div class="col-2 center">
+																<a href="NotjoinServlet?action=${sessiondetail[0]}&id=${id}&name=${name}"
+																	class="btn btn-success btn-sm" id="joined">Joined</a>
+															</div>
+															<%
+																ismember = true;
+																%>
+															<%
+																pageContext.setAttribute("ismember", ismember);
+																%>
+														</c:if>
+													</c:forEach>
+												</c:if>
+											</c:forEach>
+
+											<c:if test="${ismember!=true}">
+												<div class="col-2 center">
+													<a href="JoinServlet?action=${sessiondetail[0]}&id=${id}&name=${name}"
+														class="btn btn-primary btn-sm" id="join">Join</a>
+												</div>
+											</c:if>
+										</c:if>
 									</div>
 
 									<div class="popup mt-2">
@@ -117,7 +153,7 @@
 													<c:if test="${memberdetail[0]==sessiondetail[0]}">
 														<li class="row">
 															<div class="openmemberdetail">
-																<div class="imgcontainerSession img-fluid">
+																<div class="imgcontainerSession img-fluid m-1">
 																	<img src="uploads/${memberdetail[2]}"
 																		class="rounded-circle" />
 																</div>
@@ -180,7 +216,7 @@
 																	</div>
 
 																	<div class="col-7">
-																		<p class="mini mt-2">
+																		<p class="mt-2">
 																			<c:if test="${memberdetail[9]!=null}">
 																				<a href="${memberdetail[9]}" target="_blank"
 																					class="text-muted"><i
@@ -259,6 +295,14 @@
 
 										<div class="cancel cancelsession">
 											<i class="fa-solid fa-chevron-up"></i>
+										</div>
+										<div class="row">
+											<div class="sessionmessage mt-2">
+												<i class="fa-regular fa-message mini"></i>
+												<p class="mini">
+													<c:out value="${sessiondetail[3]}" />
+												</p>
+											</div>
 										</div>
 									</div>
 								</li>

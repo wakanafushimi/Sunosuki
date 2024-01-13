@@ -35,6 +35,7 @@ public class PeersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		PeersDAO peersDAO=new PeersDAO();
 		List<String[]> peers=peersDAO.getPeers();
 		List<String[]> peersTrick_b=peersDAO.getPeersTrick_b();

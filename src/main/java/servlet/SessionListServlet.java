@@ -32,6 +32,7 @@ public class SessionListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		SessionListModel sessionListModel=new SessionListModel();
 		SessionListDAO sessionListDAO=new SessionListDAO();
 		sessionListModel=sessionListDAO.setSession(sessionListModel);
@@ -46,8 +47,11 @@ public class SessionListServlet extends HttpServlet {
 			date=(String)session.getAttribute("date");
 		}
 		
+		System.out.println(date);
+		
 		if(date==null || date.equals("datenull")) {
 			forward="lookforsession.jsp";
+			session.removeAttribute("date");
 		}else{
 			forward="ForSessionServlet";
 		}

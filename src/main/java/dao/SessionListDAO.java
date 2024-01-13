@@ -1,4 +1,4 @@
-package dao;
+   package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -95,7 +95,7 @@ public class SessionListDAO {
             		memberid.add(rs4.getString("memberId"));
             		
                 	//メンバーの車の台数を取得
-                	String sql6="select count(*) from userdetail where id=? and car='ari';";
+                	String sql6="select count(*) from userdetail where id=? and car='あり';";
                 	PreparedStatement stmt6 = conn.prepareStatement(sql6);
                 	stmt6.setString(1,rs4.getString("memberId"));
                 	ResultSet rs6=stmt6.executeQuery();

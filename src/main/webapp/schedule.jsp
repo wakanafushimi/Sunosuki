@@ -97,7 +97,7 @@
 													<c:if test="${memberdetail[0]==sessiondetail[0]}">
 														<li class="row">
 															<div class="openmemberdetail">
-																<div class="imgcontainerSession img-fluid">
+																<div class="imgcontainerSession img-fluid m-1">
 																	<img src="uploads/${memberdetail[2]}"
 																		class="rounded-circle" />
 																</div>
@@ -159,7 +159,7 @@
 																	</div>
 
 																	<div class="col-7">
-																		<p class="mini mt-2">
+																		<p class="mt-2">
 																			<c:if test="${memberdetail[9]!=null}">
 																				<a href="${memberdetail[9]}" target="_blank"
 																					class="text-muted"><i
@@ -239,11 +239,14 @@
 											<c:choose>
 												<c:when test="${sessiondetail[7]==loginModel.id}">
 
-													<form action="EditmessageServlet?sessionid=${sessiondetail[0]}" method="post">
+													<form
+														action="EditmessageServlet?sessionid=${sessiondetail[0]}"
+														method="post">
 														<div class="row">
 															<div class="col-9">
 																<textarea name="message"
-																	placeholder="${sessiondetail[3]}" class="form-control mini"></textarea>
+																	placeholder="${sessiondetail[3]}"
+																	class="form-control mini"></textarea>
 															</div>
 															<div class="col-2">
 																<button type="submit">
@@ -255,9 +258,13 @@
 
 												</c:when>
 												<c:otherwise>
-													<div class="sessionmessage mt-1">
-														<i class="fa-regular fa-message mini"></i>
-														<c:out value="${sessiondetail[3]}" />
+													<div class="row">
+														<div class="sessionmessage mt-2">
+															<i class="fa-regular fa-message mini"></i>
+															<p class="mini">
+																<c:out value="${sessiondetail[3]}" />
+															</p>
+														</div>
 													</div>
 												</c:otherwise>
 											</c:choose>
@@ -275,6 +282,32 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="menu.jsp" />
+	<div class="fixed-bottom bg-light py-3 px-4 smallfooter">
+		<ul class="nav justify-content-around">
+			<li class="nav-item"><a class="nav-link"
+				href="TrickServlet"><i class="fa-solid fa-user"></i></a></li>
+			<li class="nav-item"><a class="nav-link menuhere" href="ScheduleServlet"><i
+					class="fa-regular fa-calendar-days"></i></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="createsession.jsp"><i class="fa-solid fa-pen-to-square"></i></a></li>
+			<li class="nav-item"><a class="nav-link" href="index.jsp"><i
+					class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+
+		</ul>
+	</div>
+
+
+	<div class="fixed-bottom widefooter">
+		<ul class="nav bg-light justify-content-center widefooterchild">
+			<li class="nav-item px-3"><a class="nav-link"
+				href="TrickServlet">Profile</a></li>
+			<li class="nav-item px-3"><a class="nav-link menuhere"
+				href="ScheduleServlet">Schedule</a></li>
+			<li class="nav-item px-3"><a class="nav-link"
+				href="createsession.jsp">Create Session</a></li>
+			<li class="nav-item px-3"><a class="nav-link" href="index.jsp">Sign
+					out</a></li>
+		</ul>
+	</div>
 </body>
 </html>

@@ -21,7 +21,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style01.css">
-<script src="script.js"></script>
+<script defer type="module" src="script.js"></script>
 </head>
 <body>
 	<nav
@@ -65,7 +65,7 @@
 							<c:if test="${coach==peer[0] }">
 								<li class="mt-2 list-group-item peerslist">
 									<div class="row openmodal">
-										<div class="col-5">
+										<div class="col-3">
 											<!-- 左エリア -->
 											<div class="imgcontainerPeers">
 												<img src="uploads/${peer[1]}"
@@ -83,7 +83,7 @@
 								</li>
 
 								<!-------------------- modal -------------------->
-								<li class="list-group-item popup peerslist peerpopup">
+								<li class="list-group-item popup peerslist peerpopup pb-4">
 									<div class="peerslist">
 										<div class="row underline">
 											<div class="col-5">
@@ -127,7 +127,7 @@
 											</div>
 
 											<div class="col-7">
-												<p class="mini mt-2">
+												<p class="mt-2">
 													<c:if test="${peer[8]!=null}">
 														<a href="${peer[8]}" target="_blank" class="text-muted"><i
 															class="fa-brands fa-instagram"></i></a>
@@ -191,9 +191,10 @@
 										<!-- 練習中技 -->
 
 										<div class="row pt-2">
-											<div class="viewpeerssession semi">
-												<a href="">View <c:out value="${peer[2]}" />'s schedule
-													<i class="fa-solid fa-arrow-right"></i></a>
+											<div class="semi">
+												<a href="PeersScheduleServlet?id=${peer[0]}&name=${peer[2]}"
+													class="viewpeerssession">View <c:out value="${peer[2]}" />'s
+													schedule <i class="fa-solid fa-arrow-right"></i></a>
 											</div>
 										</div>
 										<div class="cancel">

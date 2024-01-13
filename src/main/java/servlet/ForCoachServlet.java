@@ -33,6 +33,7 @@ public class ForCoachServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		if(request.getParameter("trick").length()!=0 && request.getParameter("trick")!=null) {
 			
 			String trick=request.getParameter("trick");

@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +32,7 @@ public class NotjoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		String sessionId=request.getParameter("action");
 		NotjoinDAO notjoinDAO=new NotjoinDAO();
 		HttpSession session = request.getSession();
@@ -40,14 +40,21 @@ public class NotjoinServlet extends HttpServlet {
 		notjoinDAO.deleteMember(sessionId,loginModel);
 		
 		String forward=null;
-		if(request.getParameter("forward")!=null && request.getParameter("forward").length()!=0) {
+		String id=null;
+		String name=null;
+		if(request.getParameter("id")!=null && request.getParameter("id").length()!=0) {
+			id=request.getParameter("id");
+			name=request.getParameter("name");
+			session.setAttribute("id",id);
+			session.setAttribute("name", name);
+			forward="PeersScheduleServlet";
+		}else if(request.getParameter("forward")!=null && request.getParameter("forward").length()!=0) {
 			forward="ScheduleServlet";
 		}else {
 			forward="SessionListServlet";
 		}
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher(forward);
-		dispatcher.forward(request, response);		
+		response.sendRedirect(forward);	
 	}
 
 	/**

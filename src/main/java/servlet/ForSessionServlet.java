@@ -33,9 +33,10 @@ public class ForSessionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-			
+			request.setCharacterEncoding("UTF-8");
 			String date=null;
 			HttpSession session = request.getSession();
+			
 			if(request.getParameter("date")!=null && request.getParameter("date").length()!=0) {
 				date=request.getParameter("date");
 				session.setAttribute("date",date);

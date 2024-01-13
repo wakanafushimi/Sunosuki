@@ -35,9 +35,17 @@ public class PeersScheduleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id=(String)request.getParameter("id");
-		String name=(String)request.getParameter("name");
-		
+		request.setCharacterEncoding("UTF-8");
+		String id=null;
+		String name=null;
+		HttpSession session = request.getSession();
+		if(request.getParameter("id")!=null) {
+			id=(String)request.getParameter("id");
+			name=(String)request.getParameter("name");
+		}else {
+			id=(String)session.getAttribute("id");
+			name=(String)session.getAttribute("name");
+		}
 		PeersScheduleModel peersScheduleModel=new PeersScheduleModel();
 		PeersScheduleDAO peersScheduleDAO=new PeersScheduleDAO();
 		peersScheduleDAO.getPeersSchedule(id,peersScheduleModel);
@@ -46,11 +54,11 @@ public class PeersScheduleServlet extends HttpServlet {
 		SessionListDAO sessionListDAO =new SessionListDAO();
 		sessionListModel=sessionListDAO.setSession(sessionListModel);
 		
-		HttpSession session = request.getSession();
+		
 		session.setAttribute("peersScheduleModel",peersScheduleModel);
 		session.setAttribute("sessionListModel",sessionListModel);
-		request.setAttribute("id",id);
-		request.setAttribute("name",name);
+		session.setAttribute("id",id);
+		session.setAttribute("name",name);
 		
 		RequestDispatcher dispatcher=request.getRequestDispatcher("peersschedule.jsp");
 		dispatcher.forward(request, response);

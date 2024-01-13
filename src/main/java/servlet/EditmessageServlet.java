@@ -42,6 +42,7 @@ public class EditmessageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		String message=null;
 		int sessionid=Integer.parseInt(request.getParameter("sessionid"));
 		if(request.getParameter("message")!=null&&request.getParameter("message").length()!=0) {
