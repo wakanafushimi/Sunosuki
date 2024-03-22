@@ -70,7 +70,7 @@
 			</h3>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col-lg-4 sessionitems">
+			<div class="col-lg-6 sessionitems">
 				<ul class="list-group">
 					<c:forEach var="sessiondetail"
 						items="${sessionListModel.sessiondetailList}">
